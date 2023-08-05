@@ -124,3 +124,14 @@ Answer.create!([
                  { body: 'HNO3 разбавленная', correct: false, question_id: ac_question_4.id },
                  { body: 'HNO3 концентрированная', correct: false, question_id: ac_question_4.id }
                ])
+
+anton = User.create!(name: 'Антон')
+vladimir = User.create!(name: 'Владимир')
+User.create!(name: 'Роман')
+
+UserTest.create!([
+                     { user_id: anton.id, test_id: nonmetals.id },
+                     { user_id: anton.id, test_id: oxides.id },
+                     { user_id: anton.id, test_id: acids.id },
+                     { user_id: vladimir.id, test_id: nonmetals.id }
+                   ])
