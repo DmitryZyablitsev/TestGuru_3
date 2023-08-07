@@ -230,16 +230,16 @@ Answer.create!([
                  { body: 'HNO3 концентрированная', correct: false, question_id: ac_question_4.id }
                ])
 
-anton, vladimir, = User.create!([
+anton, vladimir,roman = User.create!([
                                   { name: 'Антон' },
                                   { name: 'Владимир' },
                                   { name: 'Роман' }
                                 ])
 TestPassing.create!([
-                      { passing_status: 'passed', user_id: anton.id, test_id: nonmetals.id },
-                      { passing_status: 'in_progress', user_id: anton.id, test_id: oxides.id },
-                      { passing_status: 'passed', user_id: anton.id, test_id: acids.id },
-                      { passing_status: 'passed', user_id: vladimir.id, test_id: nonmetals.id },
-                      { passing_status: 'in_progress', user_id: vladimir.id, test_id: atmosphere.id },
-                      { passing_status: 'in_progress', user_id: vladimir.id, test_id: antarctica.id }
+                      { passing_status: 'passed', user_id: anton.id, test_id: nonmetals.id, author_test: roman.id },
+                      { passing_status: 'in_progress', user_id: anton.id, test_id: oxides.id, author_test: roman.id },
+                      { passing_status: 'passed', user_id: anton.id, test_id: acids.id, author_test: roman.id },
+                      { passing_status: 'passed', user_id: vladimir.id, test_id: nonmetals.id, author_test: roman.id },
+                      { passing_status: 'in_progress', user_id: vladimir.id, test_id: atmosphere.id, author_test: roman.id },
+                      { passing_status: 'in_progress', user_id: vladimir.id, test_id: antarctica.id, author_test: roman.id }
                     ])

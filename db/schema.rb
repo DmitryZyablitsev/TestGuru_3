@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2023_08_07_082845) do
 
   create_table "test_passings", force: :cascade do |t|
     t.string "passing_status"
+    t.integer "author_test", null: false
     t.integer "user_id", null: false
     t.integer "test_id", null: false
     t.datetime "created_at", precision: 6, null: false
