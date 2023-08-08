@@ -1,3 +1,10 @@
+# Пользователи
+anton, vladimir, roman =
+  User.create!([
+                 { name: 'Антон' },
+                 { name: 'Владимир' },
+                 { name: 'Роман' }
+               ])
 # Категории
 chemistry, geography =
   Category.create!([
@@ -9,13 +16,13 @@ chemistry, geography =
 nonmetals, oxides, acids, atmosphere, antarctica, hydrosphere =
   Test.create!([
                  # Тесты по химии
-                 { title: 'Неметаллы', level: 2, category_id: chemistry.id },
-                 { title: 'Оксиды', level: 3, category_id: chemistry.id },
-                 { title: 'Кислоты', level: 3, category_id: chemistry.id },
+                 { title: 'Неметаллы', level: 2, category_id: chemistry.id, author_id: roman.id },
+                 { title: 'Оксиды', level: 3, category_id: chemistry.id, author_id: roman.id },
+                 { title: 'Кислоты', level: 3, category_id: chemistry.id, author_id: roman.id },
                  # Тесты по Географии
-                 { title: 'Атмосфера', level: 2, category_id: geography.id },
-                 { title: 'Антарктида', level: 3, category_id: geography.id },
-                 { title: 'Гидросфера', level: 3, category_id: geography.id }
+                 { title: 'Атмосфера', level: 2, category_id: geography.id, author_id: roman.id },
+                 { title: 'Антарктида', level: 3, category_id: geography.id, author_id: roman.id },
+                 { title: 'Гидросфера', level: 3, category_id: geography.id, author_id: roman.id }
                ])
 # Вопросы к тесту по:
 # Атмосфере
@@ -230,16 +237,11 @@ Answer.create!([
                  { body: 'HNO3 концентрированная', correct: false, question_id: ac_question_4.id }
                ])
 
-anton, vladimir,roman = User.create!([
-                                  { name: 'Антон' },
-                                  { name: 'Владимир' },
-                                  { name: 'Роман' }
-                                ])
 TestPassing.create!([
-                      { passing_status: 'passed', user_id: anton.id, test_id: nonmetals.id, author_test: roman.id },
-                      { passing_status: 'in_progress', user_id: anton.id, test_id: oxides.id, author_test: roman.id },
-                      { passing_status: 'passed', user_id: anton.id, test_id: acids.id, author_test: roman.id },
-                      { passing_status: 'passed', user_id: vladimir.id, test_id: nonmetals.id, author_test: roman.id },
-                      { passing_status: 'in_progress', user_id: vladimir.id, test_id: atmosphere.id, author_test: roman.id },
-                      { passing_status: 'in_progress', user_id: vladimir.id, test_id: antarctica.id, author_test: roman.id }
+                      { passing_status: 'passed', user_id: anton.id, test_id: nonmetals.id },
+                      { passing_status: 'in_progress', user_id: anton.id, test_id: oxides.id },
+                      { passing_status: 'passed', user_id: anton.id, test_id: acids.id },
+                      { passing_status: 'passed', user_id: vladimir.id, test_id: nonmetals.id },
+                      { passing_status: 'in_progress', user_id: vladimir.id, test_id: atmosphere.id },
+                      { passing_status: 'in_progress', user_id: vladimir.id, test_id: antarctica.id }
                     ])
