@@ -10,8 +10,7 @@ class User < ApplicationRecord
            inverse_of: :author
 
   validates :name, presence: true, length: {in: 2..30}
-  validates :email, presence: true, length: {maximum: 255}, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-  
+  validates :email, presence: true, length: {maximum: 255}, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }  
 
   def tests_by_level(level)
     tests.where(level: level)

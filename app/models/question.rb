@@ -5,6 +5,4 @@ class Question < ApplicationRecord
 
   validates :body, presence: true
   validates :test_id, presence: true, numericality: { only_integer: true}
-
-  
 end

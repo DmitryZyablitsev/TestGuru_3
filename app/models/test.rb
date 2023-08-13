@@ -21,4 +21,3 @@ class Test < ApplicationRecord
       .pluck(:title)
   end  
 end
-# t = Test.new(title: 'Неметаллы', level: 1, category_id: 2, author_id: 2)
