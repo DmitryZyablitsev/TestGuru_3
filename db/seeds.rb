@@ -1,9 +1,9 @@
 # Пользователи
 anton, vladimir, roman =
   User.create!([
-                 { name: 'Антон' },
-                 { name: 'Владимир' },
-                 { name: 'Роман' }
+                 { name: 'Антон', email: 'anton@mail.ru' },
+                 { name: 'Владимир', email: 'vladimir@mail.ru' },
+                 { name: 'Роман', email: 'roman@mail.ru' }
                ])
 # Категории
 chemistry, geography =
@@ -16,17 +16,17 @@ chemistry, geography =
 nonmetals, oxides, acids =
   chemistry.tests.create!([
                             # Тесты по химии
-                            { title: 'Неметаллы', level: 2, author: roman },
+                            { title: 'Неметаллы', level: 1, author: roman },
                             { title: 'Оксиды', level: 3, author: roman },
-                            { title: 'Кислоты', level: 3, author: roman }
+                            { title: 'Кислоты', level: 6, author: roman }
                           ])
 
 atmosphere, antarctica, hydrosphere =
   geography.tests.create!([
                             # Тесты по Географии
-                            { title: 'Атмосфера', level: 2, author: roman },
-                            { title: 'Антарктида', level: 3, author: roman },
-                            { title: 'Гидросфера', level: 3, author: roman }
+                            { title: 'Атмосфера', level: 0, author: roman },
+                            { title: 'Антарктида', level: 2, author: roman },
+                            { title: 'Гидросфера', level: 5, author: roman }
                           ])
 # Вопросы к тесту по:
 # Атмосфере
