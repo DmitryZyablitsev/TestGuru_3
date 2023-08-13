@@ -13,235 +13,282 @@ chemistry, geography =
                      { title: 'Информатика' }
                    ])
 
-nonmetals, oxides, acids, atmosphere, antarctica, hydrosphere =
-  Test.create!([
-                 # Тесты по химии
-                 { title: 'Неметаллы', level: 2, category_id: chemistry.id, author_id: roman.id },
-                 { title: 'Оксиды', level: 3, category_id: chemistry.id, author_id: roman.id },
-                 { title: 'Кислоты', level: 3, category_id: chemistry.id, author_id: roman.id },
-                 # Тесты по Географии
-                 { title: 'Атмосфера', level: 2, category_id: geography.id, author_id: roman.id },
-                 { title: 'Антарктида', level: 3, category_id: geography.id, author_id: roman.id },
-                 { title: 'Гидросфера', level: 3, category_id: geography.id, author_id: roman.id }
-               ])
+nonmetals, oxides, acids =
+  chemistry.tests.create!([
+                            # Тесты по химии
+                            { title: 'Неметаллы', level: 2, author: roman },
+                            { title: 'Оксиды', level: 3, author: roman },
+                            { title: 'Кислоты', level: 3, author: roman }
+                          ])
+
+atmosphere, antarctica, hydrosphere =
+  geography.tests.create!([
+                            # Тесты по Географии
+                            { title: 'Атмосфера', level: 2, author: roman },
+                            { title: 'Антарктида', level: 3, author: roman },
+                            { title: 'Гидросфера', level: 3, author: roman }
+                          ])
 # Вопросы к тесту по:
 # Атмосфере
-at_question_1, at_question_2, at_question_3, at_question_4,
+at_question_1, at_question_2, at_question_3, at_question_4 =
+  atmosphere.questions.create!([
+                                 { body: 'Выберите самый нижний слой атмосферы' },
+                                 { body: 'Выберите все слои атмосферы строго сверху вниз, исключив слой, который распространен на высоте Эвереста 8848 м' },
+                                 { body: 'Укажите в каком слое атмосферы распространяется ионосфера' },
+                                 { body: 'Укажите на ошибку в списке воздушных масс' }
+                               ])
 # Антарктиде
-an_question_1, an_question_2, an_question_3, an_question_4,
+an_question_1, an_question_2, an_question_3, an_question_4 =
+  antarctica.questions.create!([
+                                 { body: 'Укажите какое место занимает Антарктида по площади территории' },
+                                 { body: 'Выберите животное, характерное для антарктических ландшафтов' },
+                                 { body: 'Выберите географа-ученого, деятельность которого не связана с Антарктидой' },
+                                 { body: 'Крупный свободно плавающий кусок льда в океане или море — это...' }
+                               ])
 # Гидросфере
-hy_question_1, hy_question_2, hy_question_3, hy_question_4,
+hy_question_1, hy_question_2, hy_question_3, hy_question_4 =
+  hydrosphere.questions.create!([
+                                  { body: 'Укажите реки, воды которых текут в области внутреннего стока' },
+                                  { body: 'Испарение и осадки все это часть единого непрерывного природного процесса. Укажите процесс' },
+                                  { body: 'Укажите ошибочную форму рельефа океана' },
+                                  { body: 'Укажите название участка океана с континентальной корой выветривания' }
+                                ])
+
 # Неметаллам
-no_question_1, no_question_2, no_question_3, no_question_4,
+no_question_1, no_question_2, no_question_3, no_question_4 =
+  nonmetals.questions.create!([
+                                { body: 'Какое из данных веществ используется в медицине, чтобы привести человека в чувства после потери сознания?' },
+                                { body: 'Какие два химических элемента, основываясь на сходстве их свойств, можно назвать «братьями»?' },
+                                { body: 'Ковалентная полярная связь присутствует в:' },
+                                { body: 'Наибольшую степень окисления сера имеет в одном из следующих соединений:' }
+                              ])
+
 # Оксидам
-ox_question_1, ox_question_2, ox_question_3, ox_question_4,
+ox_question_1, ox_question_2, ox_question_3, ox_question_4 =
+  nonmetals.questions.create!([
+                                { body: 'Оксиды – это:' },
+                                { body: 'Среди перечисленных кислотным оксидом является:' },
+                                { body: 'К несолеобразующим относится:' },
+                                { body: 'Какой оксид НЕ может сгореть в кислороде?' }
+                              ])
+
 # Кислотам
 ac_question_1, ac_question_2, ac_question_3, ac_question_4 =
-  Question.create!([
-                     #  Атмосфере
-                     { body: 'Выберите самый нижний слой атмосферы',
-                       test_id: atmosphere.id },
-                     { body: 'Выберите все слои атмосферы строго сверху вниз, исключив слой, который распространен на высоте Эвереста 8848 м',
-                       test_id: atmosphere.id },
-                     { body: 'Укажите в каком слое атмосферы распространяется ионосфера',
-                       test_id: atmosphere.id },
-                     { body: 'Укажите на ошибку в списке воздушных масс',
-                       test_id: atmosphere.id },
-                     #  Антарктиде
-                     { body: 'Укажите какое место занимает Антарктида по площади территории',
-                       test_id: antarctica.id },
-                     { body: 'Выберите животное, характерное для антарктических ландшафтов',
-                       test_id: antarctica.id },
-                     { body: 'Выберите географа-ученого, деятельность которого не связана с Антарктидой',
-                       test_id: antarctica.id },
-                     { body: 'Крупный свободно плавающий кусок льда в океане или море — это...',
-                       test_id: antarctica.id },
-                     #  Гидросфере
-                     { body: 'Укажите реки, воды которых текут в области внутреннего стока',
-                       test_id: hydrosphere.id },
-                     { body: 'Испарение и осадки все это часть единого непрерывного природного процесса. Укажите процесс',
-                       test_id: hydrosphere.id },
-                     { body: 'Укажите ошибочную форму рельефа океана',
-                       test_id: hydrosphere.id },
-                     { body: 'Укажите название участка океана с континентальной корой выветривания',
-                       test_id: hydrosphere.id },
-                     #  Неметаллам
-                     { body: 'Какое из данных веществ используется в медицине, чтобы привести человека в чувства после потери сознания?',
-                       test_id: nonmetals.id },
-                     { body: 'Какие два химических элемента, основываясь на сходстве их свойств, можно назвать «братьями»?',
-                       test_id: nonmetals.id },
-                     { body: 'Ковалентная полярная связь присутствует в:',
-                       test_id: nonmetals.id },
-                     { body: 'Наибольшую степень окисления сера имеет в одном из следующих соединений:',
-                       test_id: nonmetals.id },
-                     #  Оксидам
-                     { body: 'Оксиды – это:', test_id: oxides.id },
-                     { body: 'Среди перечисленных кислотным оксидом является:', test_id: oxides.id },
-                     { body: 'К несолеобразующим относится:', test_id: oxides.id },
-                     { body: 'Какой оксид НЕ может сгореть в кислороде?', test_id: oxides.id },
-                     #  Кислотам
-                     { body: 'Какая кислота входит в состав кока-колы?', test_id: acids.id },
-                     { body: 'Какое из приведённых ниже утверждений верно?', test_id: acids.id },
-                     { body: 'Вещество, обладающее высокой чувствительностью к изменению концентрации в растворе некоторых веществ, называется:',
-                       test_id: acids.id },
-                     { body: 'С какой кислотой не реагирует серебро?', test_id: acids.id }
-                   ])
+  acids.questions.create!([
+                            { body: 'Какая кислота входит в состав кока-колы?' },
+                            { body: 'Какое из приведённых ниже утверждений верно?' },
+                            { body: 'Вещество, обладающее высокой чувствительностью к изменению концентрации в растворе некоторых веществ, называется:' },
+                            { body: 'С какой кислотой не реагирует серебро?' }
+                          ])
 
-Answer.create!([
-                 # Ответы к тесту по Атмосфере
+# Ответы к тесту по Атмосфере
+at_question_1.answers.create!([
+                                #  1 вопрос
+                                { body: 'Экзосфера', correct: false },
+                                { body: 'Ионосфера', correct: false },
+                                { body: 'Тропосфера', correct: true },
+                                { body: 'Стратосфера', correct: false }
+                              ])
 
-                 #  1 вопрос
-                 { body: 'Экзосфера', correct: false, question_id: at_question_1.id },
-                 { body: 'Ионосфера', correct: false, question_id: at_question_1.id },
-                 { body: 'Тропосфера', correct: true, question_id: at_question_1.id },
-                 { body: 'Стратосфера', correct: false, question_id: at_question_1.id },
-                 #  2 вопрос
-                 { body: 'Экзосфера, термосфера, мезосфера, стратосфера', correct: true,
-                   question_id: at_question_2.id },
-                 { body: 'Термосфера, экзосфера, мезосфера, стратосфера', correct: false,
-                   question_id: at_question_2.id },
-                 { body: 'Мезосфера, термосфера, стратосфера, тропосфера', correct: false,
-                   question_id: at_question_2.id },
-                 { body: 'Стратосфера, мезосфера, экзосфера, термосфера', correct: false,
-                   question_id: at_question_2.id },
-                 #  3 вопрос
-                 { body: 'Тропосфера', correct: false, question_id: at_question_3.id },
-                 { body: 'Мезосфера', correct: false, question_id: at_question_3.id },
-                 { body: 'Стратосфера', correct: false, question_id: at_question_3.id },
-                 { body: 'Термосфера', correct: true, question_id: at_question_3.id },
-                 #  4 вопрос
-                 { body: 'Морские', correct: false, question_id: at_question_4.id },
-                 { body: 'Экваториальные', correct: false, question_id: at_question_4.id },
-                 { body: 'Умеренные', correct: false, question_id: at_question_4.id },
-                 { body: 'Субтропические', correct: true, question_id: at_question_4.id },
+at_question_2.answers.create!([
+                                #  2 вопрос
+                                { body: 'Экзосфера, термосфера, мезосфера, стратосфера', correct: true },
+                                { body: 'Термосфера, экзосфера, мезосфера, стратосфера', correct: false },
+                                { body: 'Мезосфера, термосфера, стратосфера, тропосфера', correct: false },
+                                { body: 'Стратосфера, мезосфера, экзосфера, термосфера', correct: false }
+                              ])
 
-                 # Ответы к тесту по Гидросфере
+at_question_3.answers.create!([
+                                #  3 вопрос
+                                { body: 'Тропосфера', correct: false },
+                                { body: 'Мезосфера', correct: false },
+                                { body: 'Стратосфера', correct: false },
+                                { body: 'Термосфера', correct: true }
+                              ])
 
-                 #  1 вопрос
-                 { body: 'Кама, Урал', correct: true, question_id: hy_question_1.id },
-                 { body: 'Волга, Муррей', correct: false, question_id: hy_question_1.id },
-                 { body: 'Нигер, Инд', correct: false, question_id: hy_question_1.id },
-                 { body: 'Амударья, Парана', correct: false, question_id: hy_question_1.id },
-                 #  2 вопрос
-                 { body: 'Осадконакопление', correct: false, question_id: hy_question_2.id },
-                 { body: 'Выветривание', correct: false, question_id: hy_question_2.id },
-                 { body: 'Круговорот воды', correct: true, question_id: hy_question_2.id },
-                 { body: 'Водная эрозия', correct: false, question_id: hy_question_2.id },
-                 #  3 вопрос
-                 { body: 'Шельф', correct: false, question_id: hy_question_3.id },
-                 { body: 'Ложе', correct: false, question_id: hy_question_3.id },
-                 { body: 'Срединный хребет', correct: false, question_id: hy_question_3.id },
-                 { body: 'Большой водораздельный хребет', correct: true, question_id: hy_question_3.id },
-                 #  4 вопрос
-                 { body: 'Ложе', correct: false, question_id: hy_question_4.id },
-                 { body: 'Шельф', correct: true, question_id: hy_question_4.id },
-                 { body: 'Желоб', correct: false, question_id: hy_question_4.id },
-                 { body: 'Котловина', correct: false, question_id: hy_question_4.id },
+at_question_4.answers.create!([
+                                #  4 вопрос
+                                { body: 'Морские', correct: false },
+                                { body: 'Экваториальные', correct: false },
+                                { body: 'Умеренные', correct: false },
+                                { body: 'Субтропические', correct: true }
+                              ])
 
-                 # Ответы к тесту по Антарктиде
+# Ответы к тесту по Гидросфере
+hy_question_1.answers.create!([
+                                #  1 вопрос
+                                { body: 'Кама, Урал', correct: true },
+                                { body: 'Волга, Муррей', correct: false },
+                                { body: 'Нигер, Инд', correct: false },
+                                { body: 'Амударья, Парана', correct: false }
+                              ])
 
-                 #  1 вопрос
-                 { body: 'Пятое', correct: true, question_id: an_question_1.id },
-                 { body: 'Третье', correct: false, question_id: an_question_1.id },
-                 { body: 'Четвертое', correct: false, question_id: an_question_1.id },
-                 { body: 'Первое', correct: false, question_id: an_question_1.id },
-                 #  2 вопрос
-                 { body: 'Песец', correct: false, question_id: an_question_2.id },
-                 { body: 'Гагара', correct: false, question_id: an_question_2.id },
-                 { body: 'Тупик', correct: false, question_id: an_question_2.id },
-                 { body: 'Пингвин', correct: true, question_id: an_question_2.id },
-                 #  3 вопрос
-                 { body: 'Д. Кук', correct: true, question_id: an_question_3.id },
-                 { body: 'М. Лазарев', correct: false, question_id: an_question_3.id },
-                 { body: 'Р. Амундсен', correct: false, question_id: an_question_3.id },
-                 { body: 'Р. Скотт', correct: false, question_id: an_question_3.id },
-                 #  4 вопрос
-                 { body: 'Шуга', correct: false, question_id: an_question_4.id },
-                 { body: 'Шельф', correct: false, question_id: an_question_4.id },
-                 { body: 'Айсберг', correct: false, question_id: an_question_4.id },
-                 { body: 'Торос', correct: false, question_id: an_question_4.id },
+hy_question_2.answers.create!([
+                                #  2 вопрос
+                                { body: 'Осадконакопление', correct: false },
+                                { body: 'Выветривание', correct: false },
+                                { body: 'Круговорот воды', correct: true },
+                                { body: 'Водная эрозия', correct: false }
+                              ])
 
-                 # Ответы к тесту по Неметаллам
+hy_question_3.answers.create!([
+                                #  3 вопрос
+                                { body: 'Шельф', correct: false },
+                                { body: 'Ложе', correct: false },
+                                { body: 'Срединный хребет', correct: false },
+                                { body: 'Большой водораздельный хребет', correct: true }
+                              ])
 
-                 #  1 вопрос
-                 { body: 'H2SO4', correct: false, question_id: no_question_1.id },
-                 { body: 'KBr', correct: false, question_id: no_question_1.id },
-                 { body: 'NH4OH', correct: true, question_id: no_question_1.id },
-                 { body: 'I2', correct: false, question_id: no_question_1.id },
-                 #  2 вопрос
-                 { body: 'Магний и фтор', correct: false, question_id: no_question_2.id },
-                 { body: 'Хлор и бром', correct: true, question_id: no_question_2.id },
-                 { body: 'Кремний и йод', correct: false, question_id: no_question_2.id },
-                 { body: 'Калий и сера', correct: false, question_id: no_question_2.id },
-                 #  3 вопрос
-                 { body: 'HCI', correct: true, question_id: no_question_3.id },
-                 { body: 'KI', correct: false, question_id: no_question_3.id },
-                 { body: 'Na2O', correct: false, question_id: no_question_3.id },
-                 { body: 'H2', correct: false, question_id: no_question_3.id },
-                 #  4 вопрос
-                 { body: 'H2SO4', correct: true, question_id: no_question_4.id },
-                 { body: 'H2S', correct: false, question_id: no_question_4.id },
-                 { body: 'SO2', correct: false, question_id: no_question_4.id },
-                 { body: 'K2S', correct: false, question_id: no_question_4.id },
+hy_question_4.answers.create!([
+                                #  4 вопрос
+                                { body: 'Ложе', correct: false },
+                                { body: 'Шельф', correct: true },
+                                { body: 'Желоб', correct: false },
+                                { body: 'Котловина', correct: false }
+                              ])
 
-                 # Ответы к тесту по Оксидам
+# Ответы к тесту по Антарктиде
+an_question_1.answers.create!([
+                                #  1 вопрос
+                                { body: 'Пятое', correct: true },
+                                { body: 'Третье', correct: false },
+                                { body: 'Четвертое', correct: false },
+                                { body: 'Первое', correct: false }
+                              ])
 
-                 #  1 вопрос
-                 { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -2',
-                   correct: false, question_id: ox_question_1.id },
-                 { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -1',
-                   correct: false, question_id: ox_question_1.id },
-                 { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -1',
-                   correct: false, question_id: ox_question_1.id },
-                 { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -2',
-                   correct: true, question_id: ox_question_1.id },
-                 #  2 вопрос
-                 { body: 'Оксид меди', correct: false, question_id: ox_question_2.id },
-                 { body: 'Оксид серы (VI)', correct: true, question_id: ox_question_2.id },
-                 { body: 'Оксид бария', correct: false, question_id: ox_question_2.id },
-                 { body: 'Оксид бария', correct: false, question_id: ox_question_2.id },
-                 #  3 вопрос
-                 { body: 'NO', correct: true, question_id: ox_question_3.id },
-                 { body: 'N2O3', correct: false, question_id: ox_question_3.id },
-                 { body: 'N2O5', correct: false, question_id: ox_question_3.id },
-                 { body: 'ZnO', correct: false, question_id: ox_question_3.id },
-                 #  4 вопрос
-                 { body: 'SO2', correct: false, question_id: ox_question_4.id },
-                 { body: 'N2O3', correct: false, question_id: ox_question_4.id },
-                 { body: 'CO', correct: false, question_id: ox_question_4.id },
-                 { body: 'CO2', correct: true, question_id: ox_question_4.id },
+an_question_2.answers.create!([
+                                #  2 вопрос
+                                { body: 'Песец', correct: false },
+                                { body: 'Гагара', correct: false },
+                                { body: 'Тупик', correct: false },
+                                { body: 'Пингвин', correct: true }
+                              ])
 
-                 # Ответы к тесту по Кислотам
+an_question_3.answers.create!([
+                                #  3 вопрос
+                                { body: 'Д. Кук', correct: true },
+                                { body: 'М. Лазарев', correct: false },
+                                { body: 'Р. Амундсен', correct: false },
+                                { body: 'Р. Скотт', correct: false }
+                              ])
 
-                 #  1 вопрос
-                 { body: 'Серная', correct: false, question_id: ac_question_1.id },
-                 { body: 'Соляная', correct: false, question_id: ac_question_1.id },
-                 { body: 'Ортофосфорная', correct: true, question_id: ac_question_1.id },
-                 { body: 'Сернистая', correct: false, question_id: ac_question_1.id },
-                 #  2 вопрос
-                 { body: 'Кислоты - это вещества, которые являются донорами ионов водорода', correct: true,
-                   question_id: ac_question_2.id },
-                 { body: 'Все кислоты хорошо растворимы в воде', correct: false, question_id: ac_question_2.id },
-                 { body: 'Кислотам не свойственно взаимодействие с щелочами.', correct: false,
-                   question_id: ac_question_2.id },
-                 { body: 'Соляная кислота является слабой.', correct: false, question_id: ac_question_2.id },
-                 #  3 вопрос
-                 { body: 'Катализатор', correct: false, question_id: ac_question_3.id },
-                 { body: 'Фермент', correct: false, question_id: ac_question_3.id },
-                 { body: 'Индикатор', correct: true, question_id: ac_question_3.id },
-                 { body: 'Ингибитор', correct: false, question_id: ac_question_3.id },
-                 #  4 вопрос
-                 { body: 'H2SO4 концентрированная', correct: false, question_id: ac_question_4.id },
-                 { body: 'HBr концентрированная', correct: true, question_id: ac_question_4.id },
-                 { body: 'HNO3 разбавленная', correct: false, question_id: ac_question_4.id },
-                 { body: 'HNO3 концентрированная', correct: false, question_id: ac_question_4.id }
-               ])
+an_question_4.answers.create!([
 
-TestPassing.create!([
-                      { passing_status: 'passed', user_id: anton.id, test_id: nonmetals.id },
-                      { passing_status: 'in_progress', user_id: anton.id, test_id: oxides.id },
-                      { passing_status: 'passed', user_id: anton.id, test_id: acids.id },
-                      { passing_status: 'passed', user_id: vladimir.id, test_id: nonmetals.id },
-                      { passing_status: 'in_progress', user_id: vladimir.id, test_id: atmosphere.id },
-                      { passing_status: 'in_progress', user_id: vladimir.id, test_id: antarctica.id }
-                    ])
+                                #  4 вопрос
+                                { body: 'Шуга', correct: false },
+                                { body: 'Шельф', correct: false },
+                                { body: 'Айсберг', correct: false },
+                                { body: 'Торос', correct: false }
+                              ])
+
+no_question_1.answers.create!([
+                                # Ответы к тесту по Неметаллам
+                                #  1 вопрос
+                                { body: 'H2SO4', correct: false },
+                                { body: 'KBr', correct: false },
+                                { body: 'NH4OH', correct: true },
+                                { body: 'I2', correct: false }
+                              ])
+
+no_question_2.answers.create!([
+                                #  2 вопрос
+                                { body: 'Магний и фтор', correct: false },
+                                { body: 'Хлор и бром', correct: true },
+                                { body: 'Кремний и йод', correct: false },
+                                { body: 'Калий и сера', correct: false }
+                              ])
+
+no_question_3.answers.create!([
+                                #  3 вопрос
+                                { body: 'HCI', correct: true },
+                                { body: 'KI', correct: false },
+                                { body: 'Na2O', correct: false },
+                                { body: 'H2', correct: false }
+                              ])
+
+no_question_4.answers.create!([
+                                #  4 вопрос
+                                { body: 'H2SO4', correct: true },
+                                { body: 'H2S', correct: false },
+                                { body: 'SO2', correct: false },
+                                { body: 'K2S', correct: false }
+                              ])
+
+# Ответы к тесту по Оксидам
+ox_question_1.answers.create!([
+                                #  1 вопрос
+                                { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -2' },
+                                { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -1' },
+                                { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -1' },
+                                { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -2' }
+                              ])
+
+ox_question_2.answers.create!([
+                                #  2 вопрос
+                                { body: 'Оксид меди', correct: false },
+                                { body: 'Оксид серы (VI)', correct: true },
+                                { body: 'Оксид бария', correct: false },
+                                { body: 'Оксид бария', correct: false }
+                              ])
+
+ox_question_3.answers.create!([
+                                #  3 вопрос
+                                { body: 'NO', correct: true },
+                                { body: 'N2O3', correct: false },
+                                { body: 'N2O5', correct: false },
+                                { body: 'ZnO', correct: false }
+                              ])
+
+ox_question_4.answers.create!([
+                                #  4 вопрос
+                                { body: 'SO2', correct: false },
+                                { body: 'N2O3', correct: false },
+                                { body: 'CO', correct: false },
+                                { body: 'CO2', correct: true }
+                              ])
+
+# Ответы к тесту по Кислотам
+ac_question_1.answers.create!([
+                                #  1 вопрос
+                                { body: 'Серная', correct: false },
+                                { body: 'Соляная', correct: false },
+                                { body: 'Ортофосфорная', correct: true },
+                                { body: 'Сернистая', correct: false }
+                              ])
+
+ac_question_2.answers.create!([
+                                #  2 вопрос
+                                { body: 'Кислоты - это вещества, которые являются донорами ионов водорода',
+                                  correct: true },
+                                { body: 'Все кислоты хорошо растворимы в воде', correct: false },
+                                { body: 'Кислотам не свойственно взаимодействие с щелочами.', correct: false },
+                                { body: 'Соляная кислота является слабой.', correct: false }
+                              ])
+
+ac_question_3.answers.create!([
+                                #  3 вопрос
+                                { body: 'Катализатор', correct: false },
+                                { body: 'Фермент', correct: false },
+                                { body: 'Индикатор', correct: true },
+                                { body: 'Ингибитор', correct: false }
+                              ])
+
+ac_question_4.answers.create!([
+                                #  4 вопрос
+                                { body: 'H2SO4 концентрированная', correct: false },
+                                { body: 'HBr концентрированная', correct: true },
+                                { body: 'HNO3 разбавленная', correct: false },
+                                { body: 'HNO3 концентрированная', correct: false }
+                              ])
+
+anton.test_passings.create!([
+                              { passing_status: 'passed', test: nonmetals },
+                              { passing_status: 'in_progress', test: oxides },
+                              { passing_status: 'passed', test: acids }
+                            ])
+
+vladimir.test_passings.create!([
+                                 { passing_status: 'passed', test: nonmetals },
+                                 { passing_status: 'in_progress', test: atmosphere },
+                                 { passing_status: 'in_progress', test: antarctica }
+                               ])
