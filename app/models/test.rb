@@ -1,6 +1,4 @@
 class Test < ApplicationRecord
-  DIFFICULTY = { simple: 0..1, middle: 2..4, hard: 5..Float::INFINITY }
-
   belongs_to :category
   belongs_to :author, class_name: 'User'
 
@@ -14,11 +12,14 @@ class Test < ApplicationRecord
   validates :author_id, presence: true, numericality: { only_integer: true }
   validates :category_id, presence: true, numericality: { only_integer: true }
 
-  scope :level, ->(complexity) { where(level: DIFFICULTY[complexity]) }
-  scope :list_by_category, lambda { |category_name|
+  scope :easy_level, -> { where(level: 0..1) }
+  scope :average_level, -> { where(level: 2..4) }
+  scope :hard_level, -> { where(level: 5..Float::INFINITY) }
+
+  def self.list_by_category(category_name)
     joins(:category)
       .where(category: { title: category_name })
       .order(title: :desc)
       .pluck(:title)
-  }
+  end
 end
