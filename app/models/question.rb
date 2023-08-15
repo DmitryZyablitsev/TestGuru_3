@@ -3,6 +3,5 @@ class Question < ApplicationRecord
 
   has_many :answers, dependent: :destroy
 
-  validates :body, presence: true
-  validates :test_id, presence: true, numericality: { only_integer: true }
+  validates :body, presence: true  
 end
