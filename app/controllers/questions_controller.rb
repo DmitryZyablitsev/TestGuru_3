@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show destroy]
   before_action :find_test, only: %i[index]
 
-rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def new; end
 
@@ -11,13 +11,13 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
     redirect_to question_path(@question)
   end
 
-  def index    
+  def index
     @questions = find_test.questions
     render inline: '<div> <% @questions.each { |q| %> <p> <%=q.body %> </p> <% } %>   </div>'
   end
 
   def show
-    render inline: "<p> <%= @question.body %> </p>"
+    render inline: '<p> <%= @question.body %> </p>'
   end
 
   def destroy
