@@ -65,7 +65,7 @@ no_question_1, no_question_2, no_question_3, no_question_4 =
 
 # Оксидам
 ox_question_1, ox_question_2, ox_question_3, ox_question_4 =
-  nonmetals.questions.create!([
+  oxides.questions.create!([
                                 { body: 'Оксиды – это:' },
                                 { body: 'Среди перечисленных кислотным оксидом является:' },
                                 { body: 'К несолеобразующим относится:' },
