@@ -1,10 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :current_question, only: %i[show edit update destroy]
-  before_action :current_test, only: %i[index new create]
-  skip_before_action :verify_authenticity_token
-  def index
-    @questions = @test.questions
-  end
+  before_action :current_test, only: %i[new create]
 
   def new
     @question = Question.new
@@ -35,7 +31,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test)
+    redirect_to tests_path
   end
 
   private

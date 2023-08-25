@@ -1,6 +1,11 @@
 module QuestionsHelper
-  def test_title(question)
-    question.test.title
+  def question_header(test)
+    case params[:action]
+    when 'edit'
+      "Edit #{test} Question"
+    when 'new'
+      "Create New #{test} Question"    
+    end
   end
 
   def current_year
