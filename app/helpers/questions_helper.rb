@@ -1,11 +1,8 @@
 module QuestionsHelper
-  def question_header(test)
-    case params[:action]
-    when 'edit'
-      "Edit #{test} Question"
-    when 'new'
-      "Create New #{test} Question"    
-    end
+  def question_header(question)
+    test_title = question.test.title
+    return "Edit #{test_title} Question" if question.persisted?
+    "Create New #{test_title} Question" if question.new_record?
   end
 
   def current_year
