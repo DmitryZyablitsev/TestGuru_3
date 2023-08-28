@@ -177,7 +177,7 @@ an_question_4.answers.create!([
                                 #  4 вопрос
                                 { body: 'Шуга', correct: false },
                                 { body: 'Шельф', correct: false },
-                                { body: 'Айсберг', correct: false },
+                                { body: 'Айсберг', correct: true },
                                 { body: 'Торос', correct: false }
                               ])
 

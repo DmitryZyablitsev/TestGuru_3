@@ -1,6 +1,8 @@
-Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+Rails.application.routes.draw do  
+  root 'tests#index'
   resources :tests do
-    resources :questions, except: :index, shallow: true
+    resources :questions, except: :index, shallow: true do
+      resources :answers, except: :index, shallow: true
+    end
   end
 end
