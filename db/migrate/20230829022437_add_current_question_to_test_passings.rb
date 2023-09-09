@@ -4,4 +4,3 @@ class AddCurrentQuestionToTestPassings < ActiveRecord::Migration[6.1]
     add_reference :test_passings, :current_question, foreign_key: { to_table: :questions }
   end
 end
-

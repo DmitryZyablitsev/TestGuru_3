@@ -2,11 +2,9 @@ class Question < ApplicationRecord
   belongs_to :test
 
   has_many :answers, dependent: :destroy
-  has_many :test_passings,
-           class_name: 'TestPassing',
+  has_many :test_passings,           
            foreign_key: 'current_question_id',
-           dependent: :destroy,
-           inverse_of: :current_question
+           dependent: :destroy
 
   validates :body, presence: true  
 end
