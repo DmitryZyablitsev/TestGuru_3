@@ -177,7 +177,7 @@ an_question_4.answers.create!([
                                 #  4 вопрос
                                 { body: 'Шуга', correct: false },
                                 { body: 'Шельф', correct: false },
-                                { body: 'Айсберг', correct: false },
+                                { body: 'Айсберг', correct: true },
                                 { body: 'Торос', correct: false }
                               ])
 
@@ -282,13 +282,13 @@ ac_question_4.answers.create!([
                               ])
 
 anton.test_passings.create!([
-                              { passing_status: 'passed', test: nonmetals },
-                              { passing_status: 'in_progress', test: oxides },
-                              { passing_status: 'passed', test: acids }
+                              { passing_status: 'passed', test: nonmetals},
+                              { passing_status: 'in_progress', test: oxides, current_question: oxides.questions.first },
+                              { passing_status: 'in_progress', test: acids, current_question: ac_question_2 }
                             ])
 
 vladimir.test_passings.create!([
-                                 { passing_status: 'passed', test: nonmetals },
-                                 { passing_status: 'in_progress', test: atmosphere },
-                                 { passing_status: 'in_progress', test: antarctica }
+                                 { passing_status: 'in_progress', test: nonmetals, current_question: no_question_3 },
+                                 { passing_status: 'passed', test: atmosphere },
+                                 { passing_status: 'passed', test: antarctica }
                                ])
