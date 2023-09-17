@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <%= flash[:notice] if flash[:notice].present? %>    
+    <%= flash[:notice] if flash[:notice].present? %>
     <% if logged_in? %>
       <p class="nav user">Welcome, <b><%= current_user.email %></b> <%= link_to 'Guru', root_path %></p>
       <p> <%= button_to 'Выход', sessions_path, method: :delete %> </p>
