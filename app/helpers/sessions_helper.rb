@@ -1,5 +1,5 @@
 module SessionsHelper
-  def flash_user_confirmation
-    content_tag :p, flash[:alert], class: 'flash alert' if flash[:alert]
+  def flash_user_confirmation(type)
+    content_tag :p, flash[type], class: 'flash alert' if flash[type]
   end
 end
