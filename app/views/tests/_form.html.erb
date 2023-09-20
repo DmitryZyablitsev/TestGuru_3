@@ -13,9 +13,5 @@
     <%= f.collection_select :category_id, Category.all, :id, :title %>
   </p>
 
-   <p>
-    <%= f.collection_select :author_id, User.all, :id, :name %>
-  </p>
-
    <%= f.submit "Create test" %>
 <% end %>

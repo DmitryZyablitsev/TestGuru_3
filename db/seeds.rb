@@ -1,9 +1,9 @@
 # Пользователи
 anton, vladimir, roman =
   User.create!([
-                 { name: 'Антон', email: 'anton@mail.ru' },
-                 { name: 'Владимир', email: 'vladimir@mail.ru' },
-                 { name: 'Роман', email: 'roman@mail.ru' }
+                 { name: 'Антон', email: 'anton@mail.ru', password: '123'  },
+                 { name: 'Владимир', email: 'vladimir@mail.ru', password: '123' },
+                 { name: 'Роман', email: 'roman@mail.ru', password: '123' }
                ])
 # Категории
 chemistry, geography =

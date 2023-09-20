@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_many :test_passings, dependent: :destroy
   has_many :tests, through: :test_passings
   has_many :created_tests,
@@ -6,6 +7,8 @@ class User < ApplicationRecord
            foreign_key: 'author_id',
            dependent: :destroy,
            inverse_of: :author
+
+  has_secure_password
 
   validates :name, presence: true, length: { in: 2..30 }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: URI::MailTo::EMAIL_REGEXP },
