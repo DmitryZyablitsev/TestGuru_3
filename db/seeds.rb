@@ -1,9 +1,10 @@
 # Пользователи
 anton, vladimir, roman =
   User.create!([
-                 { name: 'Антон', email: 'anton@mail.ru', password: '123'  },
-                 { name: 'Владимир', email: 'vladimir@mail.ru', password: '123' },
-                 { name: 'Роман', email: 'roman@mail.ru', password: '123' }
+                 { name: 'Антон', email: 'anton@mail.ru', password: '123123', password_confirmation: '123123' },
+                 { name: 'Владимир', email: 'vladimir@mail.ru', password: '123123', password_confirmation: '123123' },
+                 { name: 'Роман', email: 'roman@mail.ru', password: '123123', password_confirmation: '123123' }
+                #  :name => 'John Doe', :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
                ])
 # Категории
 chemistry, geography =
