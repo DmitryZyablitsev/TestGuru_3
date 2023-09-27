@@ -1,0 +1,12 @@
+<h1><%=@test.title%></h1> 
+
+<p> <%= link_to 'Create new question', new_test_question_path(@test.id) %> </p>
+
+<table>
+  <tbody> 
+    <%= render partial: 'questions/question', collection: @test.questions %>
+  </tbody>
+</table>
+
+<%=  link_to 'Edit', edit_admin_test_path(@test) %>
+<p> <%= link_to 'Back', admin_tests_path %> </p>

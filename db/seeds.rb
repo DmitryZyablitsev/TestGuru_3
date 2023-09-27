@@ -1,9 +1,9 @@
 # Пользователи
 anton, vladimir, roman =
   User.create!([
-                 { name: 'Антон', email: 'anton@mail.ru', password: '123123', password_confirmation: '123123' },
-                 { name: 'Владимир', email: 'vladimir@mail.ru', password: '123123', password_confirmation: '123123' },
-                 { name: 'Роман', email: 'roman@mail.ru', password: '123123', password_confirmation: '123123' }
+                 { name: 'Антон', first_name: 'Антон', last_name: 'Чехов', email: 'anton@mail.ru', password: '123123', password_confirmation: '123123', type: 'Admin', confirmed_at: Time.now },
+                 { name: 'Владимир', email: 'vladimir@mail.ru', password: '123123', password_confirmation: '123123', confirmed_at: Time.now },
+                 { name: 'Роман', email: 'roman@mail.ru', password: '123123', password_confirmation: '123123', confirmed_at: Time.now }
                 #  :name => 'John Doe', :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
                ])
 # Категории
