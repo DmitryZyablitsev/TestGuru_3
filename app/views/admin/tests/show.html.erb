@@ -1,10 +1,10 @@
 <h1><%=@test.title%></h1> 
 
-<p> <%= link_to 'Create new question', new_test_question_path(@test.id) %> </p>
+<p> <%= link_to 'Create new question', new_admin_test_question_path(@test.id) %> </p>
 
 <table>
   <tbody> 
-    <%= render partial: 'questions/question', collection: @test.questions %>
+    <%= render partial: 'admin/questions/question', collection: @test.questions %>
   </tbody>
 </table>
 
