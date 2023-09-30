@@ -17,7 +17,8 @@ class User < ApplicationRecord
            dependent: :destroy,
            inverse_of: :author
 
-  validates :name, presence: true, length: { in: 2..30 }
+  validates :first_name, presence: true, length: { in: 2..30 }
+  validates :last_name, presence: true, length: { in: 2..30 }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: URI::MailTo::EMAIL_REGEXP },
                     uniqueness: { case_sensitive: false }
 
