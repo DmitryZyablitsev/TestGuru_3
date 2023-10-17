@@ -1,0 +1,6 @@
+<h1> Tests_all </h1>
+<p> <%= link_to 'New test', new_admin_test_path %> </p>
+<table>
+  <tr><th>Название теста</th><th>Количество вопросов</th></tr>
+  <%= render @tests %>
+</table>

@@ -10,14 +10,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= flash[:notice] if flash[:notice].present? %>
-    <% if logged_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.email %></b> <%= link_to 'Guru', root_path %></p>
-      <p> <%= button_to 'Выход', sessions_path, method: :delete %> </p>
-    <% else %>
-       <p> <%= button_to 'Регистрация', signup_path, method: :get %> </p>
+  <body> 
+    <% if user_signed_in? %>
+      <p class="nav user">
+        Welcome, <b><%= current_user.email %></b> Guru |
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+      </p>
     <% end %>
+
+    <%= render 'shared/flash'%>
     <%= yield %>
   </body>
   <footer>

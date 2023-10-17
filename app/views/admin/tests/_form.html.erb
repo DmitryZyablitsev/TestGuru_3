@@ -1,0 +1,17 @@
+<%= form_with model: [:admin, @test] do |f| %>
+  <%= render 'shared/errors', resource: @test%>
+  <p>
+    <%= f.label :title%> 
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :level %>
+    <%= f.number_field :level %>
+  </p>
+
+  <p>
+    <%= f.collection_select :category_id, Category.all, :id, :title %>
+  </p>
+
+   <%= f.submit "Create test" %>
+<% end %>

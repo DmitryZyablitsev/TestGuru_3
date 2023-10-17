@@ -1,4 +1,13 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # , :lockable, :timeoutable,  and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable
 
   has_many :test_passings, dependent: :destroy
   has_many :tests, through: :test_passings
@@ -8,9 +17,8 @@ class User < ApplicationRecord
            dependent: :destroy,
            inverse_of: :author
 
-  has_secure_password
-
-  validates :name, presence: true, length: { in: 2..30 }
+  validates :first_name, presence: true, length: { in: 2..30 }
+  validates :last_name, presence: true, length: { in: 2..30 }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: URI::MailTo::EMAIL_REGEXP },
                     uniqueness: { case_sensitive: false }
 
@@ -20,5 +28,9 @@ class User < ApplicationRecord
 
   def tests_passing(test)
     test_passings.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  def admin? 
+    type == 'Admin'
   end
 end
