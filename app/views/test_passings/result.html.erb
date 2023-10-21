@@ -1,6 +1,4 @@
-<h1> <%= @test_passing.test.title %> Test was Completed! </h1>
-
-<p> Выводите сообщение и процент успеха в зависимости от количества правильных ответов </p>
+<h1> <%= t('.header', title: @test_passing.test.title) %> </h1>
 
 <p> Правильно отвеченных вопросов: <%= @test_passing.correct_questions_counter %></p>
 <p> Всего вопросов: <%= @test_passing.test.questions.count %> </p>
