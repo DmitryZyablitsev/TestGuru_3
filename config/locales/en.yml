@@ -1,6 +1,4 @@
 en:
-  hello: "Hello world"
-
   helpers:
     submit:
       test:
@@ -17,24 +15,45 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    footer:
+      author: "Author Dmitry"
+      project_objective: "Here you can create and pass various tests"
+      link:
+        thinknetica: "Educational project in an online school Thinknetica"
 
   tests:
     index:
       header: 'Tricky Tests'
+      heading:
+        name_test: "Name of the test"
+        number_questions: "Number of questions"
+    test:
+      start: "Start"
 
   test_passings:
     result:
       header: "The %{title} Test was Completed!"
 
   admin:
+    nav:
+      admin_panel: "TestGuru Admin Panel"
     tests:
       create: 
         success: 'Test was successfully created.'
       index:
         header: 'Tricky Tests'
+        new_test: "New test" 
       new:
         header: 'New Test'
+      test:
+        edit: 'Edit'
+        delete: "Delete"
 
   tests_mailer:
     completed_test:
       subject: 'You just completed the TestGuru test!'
+
+  layouts:
+    application:
+      welcome: "Welcome"
+      logout: "Logout"

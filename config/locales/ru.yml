@@ -1,6 +1,4 @@
 ru:
-  hello: "Привет мир"
-
   helpers:
     submit:
       test:
@@ -19,23 +17,45 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+    footer:
+      author: "Автор Дмитрий"
+      project_objective: "Здесь вы можете создавать и проходить различные тесты"
+      link:
+        thinknetica: "Учебный проект в онлайн-школе Thinknetica"
 
   tests:
     index:
       header: 'Доступные тесты'
+      heading:
+        name_test: "Название теста"
+        number_questions: "Количество вопросов"
+    test:
+      start: "Старт"
 
   test_passings:
     result:
       header: "Тест %{title} успешно завершён!"
 
   admin:
+    nav:
+      admin_panel: "TestGuru Панель Администратора"
     tests:
       create: 
         success: 'Тест успешно создан.'
       index:
         header: 'Доступные тесты'
+        new_test: "Новый тест"     
       new:
         header: 'Новый тест'
+      test:
+        edit: 'Редактировать'
+        delete: "Удалить"
+
   tests_mailer:
     completed_test:
       subject: 'Вы успешно завершили тест на TestGuru!'
+
+  layouts:
+    application:
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
