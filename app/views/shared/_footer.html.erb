@@ -1,7 +1,7 @@
 <div>
   <p> <%= current_year %> </p>
-  <p> Author Dmitriy </p>
+  <p> <%= t('.author') %> </p>
   <p> <%= github_url("DmitryZyablitsev", "TestGuru_3")%> </p>
-  <p> Здесь вы можете создавать и проходить различные тесты </p>  
-  <p> <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 'https://thinknetica.com/', target: "_blank",  rel: 'nofollow', rel: 'noopener'%> </p>
+  <p> <%= t('.project_objective')%> </p>  
+  <p> <%= link_to t('.link.thinknetica'), 'https://thinknetica.com/', target: "_blank",  rel: 'nofollow', rel: 'noopener'%> </p>
 </div>

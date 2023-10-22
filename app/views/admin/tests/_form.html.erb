@@ -10,8 +10,8 @@
   </p>
 
   <p>
-    <%= f.collection_select :category_id, Category.all, :id, :title %>
+    <%= f.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
 
-   <%= f.submit "Create test" %>
+   <%= f.submit %>
 <% end %>
