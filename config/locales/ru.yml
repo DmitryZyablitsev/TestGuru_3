@@ -22,6 +22,11 @@ ru:
       project_objective: "Здесь вы можете создавать и проходить различные тесты"
       link:
         thinknetica: "Учебный проект в онлайн-школе Thinknetica"
+    nav:
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
+      log_in: Войти
+      sign_up: Регистрация
 
   tests:
     index:
@@ -54,8 +59,3 @@ ru:
   tests_mailer:
     completed_test:
       subject: 'Вы успешно завершили тест на TestGuru!'
-
-  layouts:
-    application:
-      welcome: "Добро пожаловать"
-      logout: "Выйти"

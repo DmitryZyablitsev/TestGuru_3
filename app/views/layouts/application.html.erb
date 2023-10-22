@@ -11,15 +11,12 @@
   </head>
 
   <body> 
-    <% if user_signed_in? %>
-      <p class="nav user">
-        <%= t('.welcome')%>, <b><%= current_user.email %></b> Guru |
-        <%= button_to t('.logout'), destroy_user_session_path, method: :delete %>
-      </p>
-    <% end %>
+    <%= render 'shared/nav' %>
 
-    <%= render 'shared/flash'%>
-    <%= yield %>
+    <div class="container">
+      <%= render 'shared/flash'%>
+      <%= yield %>
+    </div>
   </body>
   <footer>
     <%= render 'shared/footer' %>
