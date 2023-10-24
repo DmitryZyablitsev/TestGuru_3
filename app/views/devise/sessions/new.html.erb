@@ -8,7 +8,7 @@
           <div class="form-group">
             <p>
               <%= f.label :email %>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Enter email' %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: t('.enter_email') %>
             </p>
 
             <p>
@@ -24,7 +24,7 @@
                 <% end %>
               </div>
             <% end -%>
-            <%= f.submit "Enter", class: 'btn btn-primary' %>
+            <%= f.submit t(".sign_in"), class: 'btn btn-primary' %>
           </div>
         <% end %>
       </div>

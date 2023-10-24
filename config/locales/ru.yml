@@ -27,6 +27,7 @@ ru:
       logout: "Выйти"
       log_in: Войти
       sign_up: Регистрация
+      admin_panel: "Панель Администратора"
 
   tests:
     index:
@@ -34,6 +35,7 @@ ru:
       heading:
         name_test: "Название теста"
         number_questions: "Количество вопросов"
+        actions: "Действия"
     test:
       start: "Старт"
 
@@ -43,7 +45,10 @@ ru:
 
   admin:
     nav:
-      admin_panel: "TestGuru Панель Администратора"
+      test_guru: "TestGuru"
+      admin_panel: "Панель Администратора"
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
     tests:
       create: 
         success: 'Тест успешно создан.'
