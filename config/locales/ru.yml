@@ -22,6 +22,12 @@ ru:
       project_objective: "Здесь вы можете создавать и проходить различные тесты"
       link:
         thinknetica: "Учебный проект в онлайн-школе Thinknetica"
+    nav:
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
+      log_in: Войти
+      sign_up: Регистрация
+      admin_panel: "Панель Администратора"
 
   tests:
     index:
@@ -29,6 +35,7 @@ ru:
       heading:
         name_test: "Название теста"
         number_questions: "Количество вопросов"
+        actions: "Действия"
     test:
       start: "Старт"
 
@@ -38,7 +45,10 @@ ru:
 
   admin:
     nav:
-      admin_panel: "TestGuru Панель Администратора"
+      test_guru: "TestGuru"
+      admin_panel: "Панель Администратора"
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
     tests:
       create: 
         success: 'Тест успешно создан.'
@@ -54,8 +64,3 @@ ru:
   tests_mailer:
     completed_test:
       subject: 'Вы успешно завершили тест на TestGuru!'
-
-  layouts:
-    application:
-      welcome: "Добро пожаловать"
-      logout: "Выйти"

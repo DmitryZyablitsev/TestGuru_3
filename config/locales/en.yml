@@ -20,6 +20,12 @@ en:
       project_objective: "Here you can create and pass various tests"
       link:
         thinknetica: "Educational project in an online school Thinknetica"
+    nav:
+      welcome: "Welcome"
+      logout: "Logout"
+      log_in: Log in
+      sign_up: Sign Up
+      admin_panel: "Admin Panel"
 
   tests:
     index:
@@ -27,6 +33,7 @@ en:
       heading:
         name_test: "Name of the test"
         number_questions: "Number of questions"
+        actions: "Actions"
     test:
       start: "Start"
 
@@ -36,7 +43,10 @@ en:
 
   admin:
     nav:
-      admin_panel: "TestGuru Admin Panel"
+      test_guru: "TestGuru"
+      admin_panel: "Admin Panel"
+      welcome: "Welcome"
+      logout: "Logout"
     tests:
       create: 
         success: 'Test was successfully created.'
@@ -52,8 +62,3 @@ en:
   tests_mailer:
     completed_test:
       subject: 'You just completed the TestGuru test!'
-
-  layouts:
-    application:
-      welcome: "Welcome"
-      logout: "Logout"
