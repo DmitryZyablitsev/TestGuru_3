@@ -41,7 +41,7 @@ en:
     result:
       header: "The %{title} Test was Completed!"
     gist:
-      success: "Gist успешно сохранен"
+      success: "%{link} successfully saved"
       failure: "Во время сохранения gist произошла ошибка"
 
   admin:

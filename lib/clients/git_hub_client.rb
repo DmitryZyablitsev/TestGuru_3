@@ -1,6 +1,6 @@
 class GitHubClient
 
-  ACCESS_TOKEN = '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'
+  ACCESS_TOKEN = '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'
 
   def initialize
     @client = setup_client

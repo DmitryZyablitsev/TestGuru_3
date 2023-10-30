@@ -21,7 +21,8 @@ class TestPassingsController < ApplicationController
   
     if result.success?
       Gist.create(gist_url: result.html_url, question: @test_passing.current_question, author: current_user)
-      flash[:notice] = t('.success') 
+      
+      flash[:notice] = t('.success', link: view_context.link_to('Gist', result.html_url, target: '_blank'))
     else
       flash[:alert] = t('.failure')
     end
