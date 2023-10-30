@@ -17,7 +17,7 @@ class TestPassingsController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passing.current_question).call
+    result = GistQuestionService.new(@test_passing.current_question, client: Octokit::Client.new).call
   
     flash_options = if result.success?
       { notice: t('.success') }

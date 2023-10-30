@@ -292,3 +292,11 @@ vladimir.test_passings.create!([
                                  { passing_status: 'passed', test: atmosphere },
                                  { passing_status: 'passed', test: antarctica }
                                ])
+# Gist.create!([
+#   {gist_url: 'https://gist.github.com/DmitryZyablitsev/33a98e4437de39edb43fd04179598034', question: an_question_1, author: anton   }
+# ])   
+anton.gists.create!([
+  { gist_url: 'https://gist.github.com/DmitryZyablitsev/33a98e4437de39edb43fd04179598034', question: at_question_1 },
+  { gist_url: 'https://gist.github.com/DmitryZyablitsev/7945addfe9a9e026d9e76e02849ce978', question: at_question_2 },
+  { gist_url: 'https://gist.github.com/DmitryZyablitsev/0d4f96dc6f12b690737dd4e3295c8d90', question: at_question_3 }
+])
