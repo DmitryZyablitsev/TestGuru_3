@@ -39,12 +39,14 @@ ru:
     test:
       start: "Старт"
 
+  gists:
+    create:
+      success: "%{link} успешно сохранен"
+      failure: "Во время сохранения gist произошла ошибка"
+  
   test_passings:
     result:
       header: "Тест %{title} успешно завершён!"
-    gist:
-      success: "%{link} успешно сохранен"
-      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     nav:

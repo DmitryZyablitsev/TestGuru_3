@@ -23,8 +23,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.0'
 
-gem 'faraday'
-
 gem "octokit", "~> 5.0"
 
 #LOCALIZATION
