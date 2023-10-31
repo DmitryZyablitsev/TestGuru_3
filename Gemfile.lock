@@ -89,6 +89,10 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.12.0)
       devise (>= 4.9.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.12.0)
     faraday (2.7.11)
       base64
@@ -261,6 +265,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise (~> 4.0)
   devise-i18n
+  dotenv-rails
   faraday
   jbuilder (~> 2.7)
   letter_opener
