@@ -6,14 +6,17 @@ class GistQuestionService
   end
 
   def call
-    response = @client.create_gist(gist_params)
-    ResultObject.new(response)
+    response = @client.create_gist(gist_params.to_json)
+    OpenStruct.new(
+      'html_url' => response&.html_url,
+      'success?' => response.html_url.present?
+    )
   end
 
   private
 
   def default_client
-    GitHubClient.new
+    Octokit::Client.new(access_token: ENV['OCTOKIT_TEST_GITHUB_TOKEN'])
   end
 
   def gist_params
@@ -29,19 +32,5 @@ class GistQuestionService
 
   def gist_content
     [@question.body, *@question.answers.pluck(:body)].join("\n")
-  end
-
-  class ResultObject
-    def initialize(response = nil)
-      @response = response
-     end
-
-    def html_url
-      @response&.html_url
-    end
-
-    def success?
-      html_url.present?
-    end
   end
 end
