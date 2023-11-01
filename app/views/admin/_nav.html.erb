@@ -2,7 +2,11 @@
   <div class="container">
     <span class="nav-admin title"><%= link_to t('.test_guru'), root_path %></span>
     <span class="nav-admin title">
-      <%= t('.admin_panel')%>
+      <%= t('.admin_panel')%>     
+    </span>
+
+    <span class="nav-admin title">
+      <%= link_to 'Gist table', admin_gists_path %>
     </span>
 
     <div class="nav-admin user">
