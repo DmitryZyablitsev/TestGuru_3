@@ -3,7 +3,11 @@
   <p> <%= link_to t('.new_test'), new_admin_test_path %> </p>
   <table class="table table-hover">
     <tr>
-      <th><%= t('tests.index.heading.name_test') %></th>
+      <th class="sort-by-title pointer">
+          <%= t('tests.index.heading.name_test') %> 
+          <%= octicon 'arrow-up', class: 'text-success hide' %>
+          <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
       <th><%= t('tests.index.heading.number_questions') %></th>
       <th><%= t('tests.index.heading.actions') %></th>
     </tr>
