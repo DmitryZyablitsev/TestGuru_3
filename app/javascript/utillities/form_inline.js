@@ -1,19 +1,13 @@
 document.addEventListener('turbolinks:load', function() {
-  let controls = document.querySelectorAll('.form-inline-link')
+  if ($('.form-inline-link').length) {
+    $('.form-inline-link').on('click', formInlineLinkHandler)
 
-  if(controls) {
-    for (let i = 0; i < controls.length; i++) {
-      controls[i].addEventListener('click', formInlineLinkHandler)
+    let errors = document.querySelector('.resource-errors')
+
+    if (errors) {
+      let resourceId = errors.dataset.resourceId
+      formInlineHandler(resourceId)
     }
-  }
-
-  // $('.form-inline-link').on('click', formInlineLinkHandler)
-
-  let errors = document.querySelector('.resource-errors')
-
-  if (errors) {
-    let resourceId = errors.dataset.resourceId
-    formInlineHandler(resourceId)
   }
 })
 
@@ -22,20 +16,20 @@ function formInlineLinkHandler(event) {
 
   let testId = this.dataset.testId
   formInlineHandler(testId)
+
 }
 
 function formInlineHandler(testId) {
   let link = document.querySelector(`.form-inline-link[data-test-id="${testId}"]`)
-  let testTitle = document.querySelector(`.test-title[data-test-id="${testId}"]`)
-  let formInline = document.querySelector(`.form-inline[data-test-id="${testId}"]`)
+  let $testTitle = $(`.test-title[data-test-id="${testId}"]`)
+  let $formInline = $(`.form-inline[data-test-id="${testId}"]`)
 
-  if (formInline.classList.contains('hide')) {
-    testTitle.classList.add('hide')
-    formInline.classList.remove('hide')
+  $formInline.toggle()
+  $testTitle.toggle()
+
+  if ($formInline.is(':visible')) {
     link.textContent = 'Cancel'  // link.textContent = t('.cancel')
   } else {
-    testTitle.classList.remove('hide')
-    formInline.classList.add('hide')
     link.textContent = '.show' // Добавить интернационализацию
   }
 }
