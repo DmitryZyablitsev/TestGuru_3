@@ -65,6 +65,9 @@ ru:
       test:
         edit: 'Редактировать'
         delete: "Удалить"
+        show: 'Просмотреть'
+      form_inline:
+        submit: 'OK'
 
   tests_mailer:
     completed_test:
