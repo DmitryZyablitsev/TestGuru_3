@@ -6,6 +6,15 @@ document.addEventListener('turbolinks:load', function() {
       controls[i].addEventListener('click', formInlineLinkHandler)
     }
   }
+
+  // $('.form-inline-link').on('click', formInlineLinkHandler)
+
+  let errors = document.querySelector('.resource-errors')
+
+  if (errors) {
+    let resourceId = errors.dataset.resourceId
+    formInlineHandler(resourceId)
+  }
 })
 
 function formInlineLinkHandler(event) {
@@ -20,15 +29,13 @@ function formInlineHandler(testId) {
   let testTitle = document.querySelector(`.test-title[data-test-id="${testId}"]`)
   let formInline = document.querySelector(`.form-inline[data-test-id="${testId}"]`)
 
-  console.log(link)
-  console.log(testTitle)
-  console.log(formInline)
-
-  // if (formInline.classList.contains('hide')) {
-  //   testTitle.classList.add('hide')
-  //   formInline.classList.remove('hide')
-  //   link.textContent = 'Cancel'
-  // } else {
-
-  // }
+  if (formInline.classList.contains('hide')) {
+    testTitle.classList.add('hide')
+    formInline.classList.remove('hide')
+    link.textContent = 'Cancel'  // link.textContent = t('.cancel')
+  } else {
+    testTitle.classList.remove('hide')
+    formInline.classList.add('hide')
+    link.textContent = '.show' // Добавить интернационализацию
+  }
 }

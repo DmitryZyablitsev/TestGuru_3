@@ -66,6 +66,7 @@ ru:
         edit: 'Редактировать'
         delete: "Удалить"
         show: 'Просмотреть'
+        cancel: 'Отменить'
       form_inline:
         submit: 'OK'
 

@@ -64,6 +64,7 @@ en:
         edit: 'Edit'
         delete: "Delete"
         show: 'Show'
+        сancel: 'Cancel'
       form_inline:
         submit: 'OK'
 
