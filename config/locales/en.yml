@@ -63,6 +63,10 @@ en:
       test:
         edit: 'Edit'
         delete: "Delete"
+        show: 'Show'
+        сancel: 'Cancel'
+      form_inline:
+        submit: 'OK'
 
   tests_mailer:
     completed_test:
