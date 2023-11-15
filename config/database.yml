@@ -8,8 +8,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: E37imp#8
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASS'] %> 
   host: localhost
   port: 5432
 
@@ -27,3 +27,4 @@ test:
 production:
   <<: *default
   database: test_guru_production
+  url: <%= ENV['DATABASE_URL'] %>
