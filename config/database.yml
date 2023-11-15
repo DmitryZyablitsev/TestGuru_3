@@ -22,3 +22,4 @@ production:
   <<: *default
   database: test_guru_production
   url: <%= ENV['DATABASE_URL'] %>
+  host: <%= ENV['DATABASE_URL'] %>
