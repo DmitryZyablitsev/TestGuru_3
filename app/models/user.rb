@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :gists,
            class_name: 'Gist',
            foreign_key: 'author_id'
+  has_many :user_badges, dependent: :destroy
 
   validates :first_name, presence: true, length: { in: 2..30 }
   validates :last_name, presence: true, length: { in: 2..30 }
