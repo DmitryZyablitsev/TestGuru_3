@@ -298,14 +298,14 @@ vladimir.test_passings.create!([
                                ])
 
 crown, rook, knight, pawn = Badge.create!([
-  { title: 'Crown', image_url: 'https://www.pngarts.com/files/9/Queen-Black-Crown-PNG-Image-HD.png' },
-  { title: 'Rook', image_url: 'https://cdn2.vectorstock.com/i/1000x1000/03/91/chess-rook-icon-vector-22350391.jpg' },
-  { title: 'Horse', image_url: 'https://prorisuem.ru/foto/2923/kon_shakhmaty_risunok_7.webp' },
-  { title: 'Pawn', image_url: 'https://cdn0.iconfinder.com/data/icons/chess-26/128/2-512.png'}
+  { title: 'Crown', description: 'Пройдите все тесты', image_url: 'https://www.pngarts.com/files/9/Queen-Black-Crown-PNG-Image-HD.png' },
+  { title: 'Rook', description: 'Пройдите все тесты двух любых категорий', image_url: 'https://cdn2.vectorstock.com/i/1000x1000/03/91/chess-rook-icon-vector-22350391.jpg' },
+  { title: 'Horse', description: 'Пройдите все по географии', image_url: 'https://prorisuem.ru/foto/2923/kon_shakhmaty_risunok_7.webp' },
+  { title: 'Pawn', description: 'Пройдите любой тест', image_url: 'https://cdn0.iconfinder.com/data/icons/chess-26/128/2-512.png'}
                                         ])
 anton.user_badges.create!([
                             { badge: crown },
-                            { badge: rook },
+                            # { badge: rook },
                             { badge: knight },
                             { badge: pawn }
                           ])

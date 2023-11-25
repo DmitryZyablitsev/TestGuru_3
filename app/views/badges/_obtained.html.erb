@@ -1,0 +1,5 @@
+<div class="col-lg-4 col-md-4 col-xs-4 thumb">
+  <% resource.each do |user_badge|%>
+    <%= link_to image_tag(user_badge.badge.image_url, size: "50x50"), badge_path(user_badge.badge_id) %>
+  <% end %>
+</div>
