@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def tests_passing(test)
-    test_passings.order(id: :desc).find_by(test_id: test.id)
+    test_passings.order(id: :desc).find_by(test_id: test.id, passing_status: 'in_progress')
   end
 
   def admin? 

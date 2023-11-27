@@ -21,7 +21,11 @@ class TestPassing < ApplicationRecord
   end
 
   def remaining_questions
-    test.questions.order(:id).where('id > ?', self.current_question.id)
+   questions = self.test.questions.order(:id).where('id > ?', self.current_question.id)
+   if questions.empty?
+    self.passing_status = 'passed'
+   end
+   return questions
   end
 
   def question_number
@@ -37,10 +41,12 @@ class TestPassing < ApplicationRecord
   def before_validation_set_next_question
     self.current_question = 
       if self.new_record?
+        self.passing_status = 'in_progress'
         test.questions.first
-      else        
+      else
         remaining_questions.first
       end
+
   end
 
   def correct_answer?(answer_ids)

@@ -285,18 +285,6 @@ ac_question_4.answers.create!([
                                 { body: 'HNO3 концентрированная', correct: false }
                               ])
 
-anton.test_passings.create!([
-                              { passing_status: 'passed', test: nonmetals},
-                              { passing_status: 'in_progress', test: oxides, current_question: oxides.questions.first },
-                              { passing_status: 'in_progress', test: acids, current_question: ac_question_2 }
-                            ])
-
-vladimir.test_passings.create!([
-                                 { passing_status: 'in_progress', test: nonmetals, current_question: no_question_3 },
-                                 { passing_status: 'passed', test: atmosphere },
-                                 { passing_status: 'passed', test: antarctica }
-                               ])
-
 crown, rook, knight, pawn = Badge.create!([
   { title: 'Crown', description: 'Пройдите все тесты', image_url: 'https://www.pngarts.com/files/9/Queen-Black-Crown-PNG-Image-HD.png' },
   { title: 'Rook', description: 'Пройдите все тесты двух любых категорий', image_url: 'https://cdn2.vectorstock.com/i/1000x1000/03/91/chess-rook-icon-vector-22350391.jpg' },
