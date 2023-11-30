@@ -23,7 +23,7 @@ class TestPassing < ApplicationRecord
   def remaining_questions
    questions = self.test.questions.order(:id).where('id > ?', self.current_question.id)
    if questions.empty?
-    self.passing_status = 'passed'
+    complete
    end
    return questions
   end
@@ -55,5 +55,9 @@ class TestPassing < ApplicationRecord
 
   def correct_answers
     current_question.answers.correct
+  end
+
+  def complete
+    self.passing_status = 'passed'
   end
 end

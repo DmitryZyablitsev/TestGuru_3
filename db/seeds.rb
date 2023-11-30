@@ -221,10 +221,10 @@ no_question_4.answers.create!([
 # Ответы к тесту по Оксидам
 ox_question_1.answers.create!([
                                 #  1 вопрос
-                                { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -2' },
-                                { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -1' },
-                                { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -1' },
-                                { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -2' }
+                                { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -2', correct: false },
+                                { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -1', correct: false },
+                                { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -1', correct: false },
+                                { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -2', correct: true }
                               ])
 
 ox_question_2.answers.create!([
@@ -285,7 +285,7 @@ ac_question_4.answers.create!([
                                 { body: 'HNO3 концентрированная', correct: false }
                               ])
 
-crown, rook, knight, pawn = Badge.create!([
+crown, rook, horse, pawn = Badge.create!([
   { title: 'Crown', description: 'Пройдите все тесты', image_url: 'https://www.pngarts.com/files/9/Queen-Black-Crown-PNG-Image-HD.png' },
   { title: 'Rook', description: 'Пройдите все тесты двух любых категорий', image_url: 'https://cdn2.vectorstock.com/i/1000x1000/03/91/chess-rook-icon-vector-22350391.jpg' },
   { title: 'Horse', description: 'Пройдите все по географии', image_url: 'https://prorisuem.ru/foto/2923/kon_shakhmaty_risunok_7.webp' },
@@ -294,11 +294,11 @@ crown, rook, knight, pawn = Badge.create!([
 anton.user_badges.create!([
                             { badge: crown },
                             # { badge: rook },
-                            { badge: knight },
+                            { badge: horse },
                             { badge: pawn }
                           ])
 
 vladimir.user_badges.create!([
-                            { badge: knight },
+                            { badge: horse },
                             { badge: pawn }
                           ])
