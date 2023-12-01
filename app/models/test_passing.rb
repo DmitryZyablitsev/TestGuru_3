@@ -59,5 +59,6 @@ class TestPassing < ApplicationRecord
 
   def complete
     self.passing_status = 'passed'
+    self.result = result_passage
   end
 end

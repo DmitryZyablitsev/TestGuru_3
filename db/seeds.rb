@@ -20,9 +20,9 @@ chemistry, geography =
 nonmetals, oxides, acids =
   chemistry.tests.create!([
                             # Тесты по химии
-                            { title: 'Неметаллы', level: 1, author: roman },
+                            { title: 'Неметаллы', level: 5, author: roman },
                             { title: 'Оксиды', level: 3, author: roman },
-                            { title: 'Кислоты', level: 6, author: roman }
+                            { title: 'Кислоты', level: 3, author: roman }
                           ])
 
 atmosphere, antarctica, hydrosphere =
