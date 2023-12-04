@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     
     resources :gists, only: :create
 
-    resources :badges, only: %i[index new create show] do
+    resources :badges, only: %i[index show] do
       collection do
         get :obtained
       end   
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges, only: %i[new create] 
     resources :gists, only: :index
     resources :tests do
       patch :update_inline, on: :member
