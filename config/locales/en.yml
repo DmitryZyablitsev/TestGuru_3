@@ -85,3 +85,6 @@ en:
       description: 'Description'
       received: 'Received'
       badges: 'Badges'
+      new_badge: 'New Badge'
+    obtained:
+      badges: 'Badges'

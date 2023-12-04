@@ -25,7 +25,7 @@ class TestPassing < ApplicationRecord
    if questions.empty?
     complete
    end
-   return questions
+   questions
   end
 
   def question_number

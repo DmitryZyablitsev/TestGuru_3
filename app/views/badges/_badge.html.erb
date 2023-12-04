@@ -2,4 +2,5 @@
   <td> <%= link_to image_tag(badge.image_url, size: "50x50"), badge_path(badge) %> </td>
   <td> <%= badge.title%> </td>
   <td> <%= badge.description%> </td>
+  <td> <%= badge.received?(current_user)%> </td>
 </tr>

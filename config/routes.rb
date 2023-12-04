@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     
     resources :gists, only: :create
 
-    resources :badges do
+    resources :badges, only: %i[index new create show] do
       collection do
         get :obtained
       end   
@@ -35,5 +35,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
 end

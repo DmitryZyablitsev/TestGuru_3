@@ -87,5 +87,6 @@ ru:
       description: 'Описание'
       received: 'Полученный'
       badges: 'Эмблемы'
+      new_badge: 'Новая Эмблема'
     obtained:
        badges: 'Эмблемы'
