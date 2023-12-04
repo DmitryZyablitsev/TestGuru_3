@@ -29,7 +29,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   def tests_by_level(level)
-    tests.where(level:)
+    tests.where(level: level)
   end
 
   def tests_passing(test)
@@ -38,6 +38,18 @@ class User < ApplicationRecord
 
   def tests_passed(test)
     test_passings.where(test_id: test.id, passing_status: 'passed')
+  end
+
+  def successfully_completed_tests(tests)
+    test_passings.where(passing_status: 'passed', result: 85..100, test_id: tests)
+  end
+
+  def badges_by_title(title)
+    badges.where(title: title)
+  end
+
+  def count_badges(title_badge)
+    badges.where(title: title_badge).count
   end
 
   def admin? 

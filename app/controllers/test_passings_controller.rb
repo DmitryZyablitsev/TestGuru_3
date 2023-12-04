@@ -10,7 +10,8 @@ class TestPassingsController < ApplicationController
     @test_passing.accept!(params[:answer_ids])
     if @test_passing.completed?
       TestsMailer.completed_test(@test_passing).deliver_now
-      UserBadge.assign(current_user, @test_passing.test)
+      # 85..100 это результат прохождения теста который считается успешным
+      AssigningBadges.new(current_user, @test_passing.test).call if @test_passing.result.between?(85,100) 
       redirect_to result_test_passing_path(@test_passing)
     else
       render :show
@@ -21,6 +22,5 @@ class TestPassingsController < ApplicationController
 
   def set_test_passing
     @test_passing = TestPassing.find(params[:id])
-
   end
 end
