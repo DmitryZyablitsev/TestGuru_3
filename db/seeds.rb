@@ -285,11 +285,10 @@ ac_question_4.answers.create!([
                                 { body: 'HNO3 концентрированная', correct: false }
                               ])
 
-crown, rook, horse, pawn = Badge.create!([
-  { title: 'Crown', description: 'Пройдите все тесты', image_url: 'https://www.pngarts.com/files/9/Queen-Black-Crown-PNG-Image-HD.png' },
-  { title: 'Rook', description: 'Пройдите все тесты двух любых категорий', image_url: 'https://cdn2.vectorstock.com/i/1000x1000/03/91/chess-rook-icon-vector-22350391.jpg' },
-  { title: 'Horse', description: 'Пройдите все по географии', image_url: 'https://prorisuem.ru/foto/2923/kon_shakhmaty_risunok_7.webp' },
-  { title: 'Pawn', description: 'Пройдите любой тест', image_url: 'https://cdn0.iconfinder.com/data/icons/chess-26/128/2-512.png'}
+Level-3, planet, first = Badge.create!([
+  { title: 'Level-3', description: 'Пройдите все тесты 3 уровня', image_url: 'https://tse2.mm.bing.net/th?id=OIP.zYXxnGw_1Unx9DvMLqBp2gHaFH&pid=Api', rule: 'all_by_level', argument: '3, Level-3' },
+  { title: 'Planet', description: 'Пройдите все по географии', image_url: 'https://aliceskill.ru/media/data/00/57/00579fff-a11f-4399-b781-4d9d3f5ba9db/geograficheskij-test..256x256_q85_background-%23ffffff.png', rule: 'all_by_category', argument: 'География, Planet'   },
+  { title: 'First', description: 'Пройдите любой тест', image_url: 'https://webstockreview.net/images250_/pharmacy-clipart-buyer-seller-2.png', rule: 'first_try'}
                                         ])
 # anton.user_badges.create!([
 #                             { badge: crown },

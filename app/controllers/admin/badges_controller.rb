@@ -3,6 +3,7 @@ class Admin::BadgesController < Admin::BaseController
 
   def new
     @badge = Badge.new
+    @available_levels = Test.available_levels.to_set
   end
   
   def create
@@ -17,6 +18,6 @@ class Admin::BadgesController < Admin::BaseController
   private
 
   def badge_params
-    params.require(:badge).permit(:title, :image_url, :description)
+    params.require(:badge).permit(:title, :image_url, :description, :rules, :category_id, :available_levels)
   end
 end

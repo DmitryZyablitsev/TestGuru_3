@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2023_12_01_101132) do
     t.string "title", null: false
     t.string "image_url", null: false
     t.text "description", null: false
+    t.string "rule", null: false
+    t.string "argument"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

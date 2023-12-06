@@ -10,6 +10,14 @@ class AssigningBadges
     all_by_level(@test.level, 'Rook')
   end
 
+  def self.rules
+    { 
+      'За успешное прохождение всех тестов определённой категории' => 'all_by_category',
+      'За успешное прохождение всех тестов определённого уровня' => 'all_by_level',
+      'За успешное прохождение теста с первой попытки' => 'first_try'
+    }
+  end
+
   private
 
   def first_try
