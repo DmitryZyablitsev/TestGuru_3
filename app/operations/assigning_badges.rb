@@ -5,13 +5,12 @@ class AssigningBadges
   end
 
   def call
-    first_try
-    all_by_category('География', 'Horse')
-    all_by_level(@test.level, 'Rook')
+    list_metods_assing_badges = Badge.all.order(:id).pluck(:rule, :argument)    
+    list_metods_assing_badges.map! { |el| send(el.first, el.last.delete(' ').split(',').first, el.last.delete(' ').split(',').last) }
   end
 
   def self.rules
-    { 
+    {
       'За успешное прохождение всех тестов определённой категории' => 'all_by_category',
       'За успешное прохождение всех тестов определённого уровня' => 'all_by_level',
       'За успешное прохождение теста с первой попытки' => 'first_try'
@@ -19,10 +18,9 @@ class AssigningBadges
   end
 
   private
-
-  def first_try
+  def first_try(*args)
     if @user.tests_passed(@test).count == 1
-      @user.user_badges.create!(badge: Badge.find_by(title: ('Pawn')))
+      @user.user_badges.create!(badge: Badge.find_by(title: ('First')))
     end
   end
 
@@ -41,7 +39,7 @@ class AssigningBadges
 
   # Выдать бэйдж после успешного прохождения всех тестов определённого уровня
   def all_by_level(level, name_badge)
-    all_tests_id_by_level = Test.list_by_level(@test.level).pluck(:id)
+    all_tests_id_by_level = Test.list_by_level(level).pluck(:id)
     passed_tests_by_level = @user.successfully_completed_tests(all_tests_id_by_level)
 
     if passed_tests_by_level.order(:test_id).pluck(:test_id).to_set.size == all_tests_id_by_level.to_set.size

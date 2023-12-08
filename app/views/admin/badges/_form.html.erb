@@ -17,17 +17,12 @@
 
   <p>
     <%= f.label 'Правила присвоения'%> 
-    <%= f.select :rules, AssigningBadges.rules, prompt: true %>
+    <%= f.select :rule, AssigningBadges.rules, prompt: true %>
   </p>
 
-  <p class=''>
-    <%= f.label 'Категория'%> 
-    <%= f.collection_select :argument, Category.all, :id, :title, prompt: true %>
-  </p>
-
-  <p class=''>
-    <%= f.label 'Уровень'%> 
-    <%= f.select :argument, @available_levels, prompt: true %>
+  <p>
+    <%= f.label 'Аргументы'%> 
+    <%= f.text_field :argument %>
   </p>
 
    <%= f.submit %>
