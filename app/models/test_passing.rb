@@ -5,10 +5,6 @@ class TestPassing < ApplicationRecord
 
   before_validation :before_validation_set_next_question
 
-  def completed?
-    current_question.nil?
-  end
-
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions_counter += 1      
@@ -41,7 +37,6 @@ class TestPassing < ApplicationRecord
   def before_validation_set_next_question
     self.current_question = 
       if self.new_record?
-        self.passing_status = 'in_progress'
         test.questions.first
       else
         remaining_questions.first
@@ -58,7 +53,9 @@ class TestPassing < ApplicationRecord
   end
 
   def complete
-    self.passing_status = 'passed'
+    self.passed = true
     self.result = result_passage
+    # 85..100 это результат прохождения теста который считается успешным
+    self.successful = true if result_passage >= 85
   end
 end

@@ -6,7 +6,8 @@ class Badge < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :image_url, presence: true, uniqueness: true
   validates :description, presence: true
-
+  validates :rule_type, presence: true
+  
   def received?(user)
     !!UserBadge.find_by(badge: self, user: user)
   end

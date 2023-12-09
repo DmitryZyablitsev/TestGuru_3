@@ -33,15 +33,15 @@ class User < ApplicationRecord
   end
 
   def tests_passing(test)
-    test_passings.order(id: :desc).find_by(test_id: test.id, passing_status: 'in_progress')
+    test_passings.order(id: :desc).find_by(test_id: test.id, passed: false)
   end
 
   def tests_passed(test)
-    test_passings.where(test_id: test.id, passing_status: 'passed')
+    test_passings.where(test_id: test.id, passed: true)
   end
 
   def successfully_completed_tests(tests)
-    test_passings.where(passing_status: 'passed', result: 85..100, test_id: tests)
+    test_passings.where(successful: true, test_id: tests)
   end
 
   def badges_by_title(title)

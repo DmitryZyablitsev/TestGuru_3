@@ -287,12 +287,12 @@ ac_question_4.answers.create!([
 
 level_3, planet, first = Badge.create!([
   { title: 'Level-3', description: 'Пройдите все тесты 3 уровня',
-    image_url: 'https://tse2.mm.bing.net/th?id=OIP.zYXxnGw_1Unx9DvMLqBp2gHaFH&pid=Api', rule: 'all_by_level',
-    argument: "3,Level-3" },
+    image_url: 'https://tse2.mm.bing.net/th?id=OIP.zYXxnGw_1Unx9DvMLqBp2gHaFH&pid=Api', rule_type: 'AllByLevel',
+    rule_value: "3" },
   { title: 'Planet', description: 'Пройдите все по географии',
     image_url: 'https://aliceskill.ru/media/data/00/57/00579fff-a11f-4399-b781-4d9d3f5ba9db/geograficheskij-test..256x256_q85_background-%23ffffff.png',
-    rule: 'all_by_category', argument: "География,Planet"   },
+    rule_type: 'AllByCategory', rule_value: "География" },
   { title: 'First', description: 'Пройдите любой тест',
     image_url: 'https://webstockreview.net/images250_/pharmacy-clipart-buyer-seller-2.png',
-    rule: 'first_try', argument: ""}
+    rule_type: 'SuccessfulFirstAttempt', rule_value: "" }
                                         ])

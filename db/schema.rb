@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2023_12_01_101132) do
     t.string "title", null: false
     t.string "image_url", null: false
     t.text "description", null: false
-    t.string "rule", null: false
-    t.string "argument"
+    t.string "rule_type", null: false
+    t.string "rule_value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2023_12_01_101132) do
   end
 
   create_table "test_passings", force: :cascade do |t|
-    t.string "passing_status"
     t.bigint "user_id", null: false
     t.bigint "test_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -67,6 +66,8 @@ ActiveRecord::Schema.define(version: 2023_12_01_101132) do
     t.integer "correct_questions_counter", default: 0, null: false
     t.bigint "current_question_id"
     t.decimal "result", precision: 5, scale: 2
+    t.boolean "successful", default: false
+    t.boolean "passed", default: false
     t.index ["current_question_id"], name: "index_test_passings_on_current_question_id"
     t.index ["test_id"], name: "index_test_passings_on_test_id"
     t.index ["user_id"], name: "index_test_passings_on_user_id"
