@@ -1,0 +1,9 @@
+<h1><%= @badge.title %></h1>
+
+<%= image_tag(@badge.image_url, size: "250x250") %>
+
+<h4> Для получения </h4>
+
+<p> <%= @badge.description  %> </p>
+
+<p> <%= link_to 'Back', @pages_back || obtained_badges_path %> </p>

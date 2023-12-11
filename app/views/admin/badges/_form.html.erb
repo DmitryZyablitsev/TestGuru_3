@@ -1,0 +1,29 @@
+<%= form_with model: [:admin, @badge] do |f| %>
+  <%= render 'shared/errors', resource: @badge%>
+  <p>
+    <%= f.label :title%> 
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :image_url%> 
+    <%= f.text_field :image_url %>
+  </p>
+
+  <p>
+    <%= f.label :description%> 
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.label 'Правила присвоения'%> 
+    <%= f.select :rule_type, Specifications::Badges::BadgeDepartament.rules, prompt: true %>
+  </p>
+
+  <p>
+    <%= f.label 'Аргументы'%> 
+    <%= f.text_field :rule_value %>
+  </p>
+
+   <%= f.submit %>
+<% end %>

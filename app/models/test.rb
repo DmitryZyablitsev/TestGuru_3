@@ -17,7 +17,14 @@ class Test < ApplicationRecord
   def self.list_by_category(category_name)
     joins(:category)
       .where(category: { title: category_name })
-      .order(title: :desc)
-      .pluck(:title)
+      .order(:id)
+  end
+
+  def self.list_by_level(level)
+    where(level: level).order(:id)
+  end
+
+  def self.available_levels
+    all.order(:level).pluck(:level)
   end
 end

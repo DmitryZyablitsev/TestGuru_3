@@ -1,3 +1,7 @@
+User.destroy_all
+Category.destroy_all
+Badge.destroy_all
+
 # Пользователи
 anton, vladimir, roman =
   User.create!([
@@ -16,9 +20,9 @@ chemistry, geography =
 nonmetals, oxides, acids =
   chemistry.tests.create!([
                             # Тесты по химии
-                            { title: 'Неметаллы', level: 1, author: roman },
+                            { title: 'Неметаллы', level: 5, author: roman },
                             { title: 'Оксиды', level: 3, author: roman },
-                            { title: 'Кислоты', level: 6, author: roman }
+                            { title: 'Кислоты', level: 3, author: roman }
                           ])
 
 atmosphere, antarctica, hydrosphere =
@@ -86,13 +90,13 @@ at_question_1.answers.create!([
                                 #  1 вопрос
                                 { body: 'Экзосфера', correct: false },
                                 { body: 'Ионосфера', correct: false },
-                                { body: 'Тропосфера', correct: true },
+                                { body: 'Тропосфера!', correct: true },
                                 { body: 'Стратосфера', correct: false }
                               ])
 
 at_question_2.answers.create!([
                                 #  2 вопрос
-                                { body: 'Экзосфера, термосфера, мезосфера, стратосфера', correct: true },
+                                { body: 'Экзосфера, термосфера, мезосфера, стратосфера!', correct: true },
                                 { body: 'Термосфера, экзосфера, мезосфера, стратосфера', correct: false },
                                 { body: 'Мезосфера, термосфера, стратосфера, тропосфера', correct: false },
                                 { body: 'Стратосфера, мезосфера, экзосфера, термосфера', correct: false }
@@ -103,7 +107,7 @@ at_question_3.answers.create!([
                                 { body: 'Тропосфера', correct: false },
                                 { body: 'Мезосфера', correct: false },
                                 { body: 'Стратосфера', correct: false },
-                                { body: 'Термосфера', correct: true }
+                                { body: 'Термосфера!', correct: true }
                               ])
 
 at_question_4.answers.create!([
@@ -111,13 +115,13 @@ at_question_4.answers.create!([
                                 { body: 'Морские', correct: false },
                                 { body: 'Экваториальные', correct: false },
                                 { body: 'Умеренные', correct: false },
-                                { body: 'Субтропические', correct: true }
+                                { body: 'Субтропические!', correct: true }
                               ])
 
 # Ответы к тесту по Гидросфере
 hy_question_1.answers.create!([
                                 #  1 вопрос
-                                { body: 'Кама, Урал', correct: true },
+                                { body: 'Кама, Урал!', correct: true },
                                 { body: 'Волга, Муррей', correct: false },
                                 { body: 'Нигер, Инд', correct: false },
                                 { body: 'Амударья, Парана', correct: false }
@@ -127,7 +131,7 @@ hy_question_2.answers.create!([
                                 #  2 вопрос
                                 { body: 'Осадконакопление', correct: false },
                                 { body: 'Выветривание', correct: false },
-                                { body: 'Круговорот воды', correct: true },
+                                { body: 'Круговорот воды!', correct: true },
                                 { body: 'Водная эрозия', correct: false }
                               ])
 
@@ -136,13 +140,13 @@ hy_question_3.answers.create!([
                                 { body: 'Шельф', correct: false },
                                 { body: 'Ложе', correct: false },
                                 { body: 'Срединный хребет', correct: false },
-                                { body: 'Большой водораздельный хребет', correct: true }
+                                { body: 'Большой водораздельный хребет!', correct: true }
                               ])
 
 hy_question_4.answers.create!([
                                 #  4 вопрос
                                 { body: 'Ложе', correct: false },
-                                { body: 'Шельф', correct: true },
+                                { body: 'Шельф!', correct: true },
                                 { body: 'Желоб', correct: false },
                                 { body: 'Котловина', correct: false }
                               ])
@@ -150,7 +154,7 @@ hy_question_4.answers.create!([
 # Ответы к тесту по Антарктиде
 an_question_1.answers.create!([
                                 #  1 вопрос
-                                { body: 'Пятое', correct: true },
+                                { body: 'Пятое!', correct: true },
                                 { body: 'Третье', correct: false },
                                 { body: 'Четвертое', correct: false },
                                 { body: 'Первое', correct: false }
@@ -161,12 +165,12 @@ an_question_2.answers.create!([
                                 { body: 'Песец', correct: false },
                                 { body: 'Гагара', correct: false },
                                 { body: 'Тупик', correct: false },
-                                { body: 'Пингвин', correct: true }
+                                { body: 'Пингвин!', correct: true }
                               ])
 
 an_question_3.answers.create!([
                                 #  3 вопрос
-                                { body: 'Д. Кук', correct: true },
+                                { body: 'Д. Кук!', correct: true },
                                 { body: 'М. Лазарев', correct: false },
                                 { body: 'Р. Амундсен', correct: false },
                                 { body: 'Р. Скотт', correct: false }
@@ -177,7 +181,7 @@ an_question_4.answers.create!([
                                 #  4 вопрос
                                 { body: 'Шуга', correct: false },
                                 { body: 'Шельф', correct: false },
-                                { body: 'Айсберг', correct: true },
+                                { body: 'Айсберг!', correct: true },
                                 { body: 'Торос', correct: false }
                               ])
 
@@ -186,21 +190,21 @@ no_question_1.answers.create!([
                                 #  1 вопрос
                                 { body: 'H2SO4', correct: false },
                                 { body: 'KBr', correct: false },
-                                { body: 'NH4OH', correct: true },
+                                { body: 'NH4OH!', correct: true },
                                 { body: 'I2', correct: false }
                               ])
 
 no_question_2.answers.create!([
                                 #  2 вопрос
                                 { body: 'Магний и фтор', correct: false },
-                                { body: 'Хлор и бром', correct: true },
+                                { body: 'Хлор и бром!', correct: true },
                                 { body: 'Кремний и йод', correct: false },
                                 { body: 'Калий и сера', correct: false }
                               ])
 
 no_question_3.answers.create!([
                                 #  3 вопрос
-                                { body: 'HCI', correct: true },
+                                { body: 'HCI!', correct: true },
                                 { body: 'KI', correct: false },
                                 { body: 'Na2O', correct: false },
                                 { body: 'H2', correct: false }
@@ -208,7 +212,7 @@ no_question_3.answers.create!([
 
 no_question_4.answers.create!([
                                 #  4 вопрос
-                                { body: 'H2SO4', correct: true },
+                                { body: 'H2SO4!', correct: true },
                                 { body: 'H2S', correct: false },
                                 { body: 'SO2', correct: false },
                                 { body: 'K2S', correct: false }
@@ -217,23 +221,23 @@ no_question_4.answers.create!([
 # Ответы к тесту по Оксидам
 ox_question_1.answers.create!([
                                 #  1 вопрос
-                                { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -2' },
-                                { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -1' },
-                                { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -1' },
-                                { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -2' }
+                                { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -2', correct: false },
+                                { body: 'Органические соединения различных элементов с кислородом, степень окисления которого равна -1', correct: false },
+                                { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -1', correct: false },
+                                { body: 'Неорганические соединения различных элементов с кислородом, степень окисления которого равна -2!', correct: true }
                               ])
 
 ox_question_2.answers.create!([
                                 #  2 вопрос
                                 { body: 'Оксид меди', correct: false },
-                                { body: 'Оксид серы (VI)', correct: true },
+                                { body: 'Оксид серы (VI)!', correct: true },
                                 { body: 'Оксид бария', correct: false },
                                 { body: 'Оксид бария', correct: false }
                               ])
 
 ox_question_3.answers.create!([
                                 #  3 вопрос
-                                { body: 'NO', correct: true },
+                                { body: 'NO!', correct: true },
                                 { body: 'N2O3', correct: false },
                                 { body: 'N2O5', correct: false },
                                 { body: 'ZnO', correct: false }
@@ -244,7 +248,7 @@ ox_question_4.answers.create!([
                                 { body: 'SO2', correct: false },
                                 { body: 'N2O3', correct: false },
                                 { body: 'CO', correct: false },
-                                { body: 'CO2', correct: true }
+                                { body: 'CO2!', correct: true }
                               ])
 
 # Ответы к тесту по Кислотам
@@ -252,13 +256,13 @@ ac_question_1.answers.create!([
                                 #  1 вопрос
                                 { body: 'Серная', correct: false },
                                 { body: 'Соляная', correct: false },
-                                { body: 'Ортофосфорная', correct: true },
+                                { body: 'Ортофосфорная!', correct: true },
                                 { body: 'Сернистая', correct: false }
                               ])
 
 ac_question_2.answers.create!([
                                 #  2 вопрос
-                                { body: 'Кислоты - это вещества, которые являются донорами ионов водорода',
+                                { body: 'Кислоты - это вещества, которые являются донорами ионов водорода!',
                                   correct: true },
                                 { body: 'Все кислоты хорошо растворимы в воде', correct: false },
                                 { body: 'Кислотам не свойственно взаимодействие с щелочами.', correct: false },
@@ -269,26 +273,26 @@ ac_question_3.answers.create!([
                                 #  3 вопрос
                                 { body: 'Катализатор', correct: false },
                                 { body: 'Фермент', correct: false },
-                                { body: 'Индикатор', correct: true },
+                                { body: 'Индикатор!', correct: true },
                                 { body: 'Ингибитор', correct: false }
                               ])
 
 ac_question_4.answers.create!([
                                 #  4 вопрос
                                 { body: 'H2SO4 концентрированная', correct: false },
-                                { body: 'HBr концентрированная', correct: true },
+                                { body: 'HBr концентрированная!', correct: true },
                                 { body: 'HNO3 разбавленная', correct: false },
                                 { body: 'HNO3 концентрированная', correct: false }
                               ])
 
-anton.test_passings.create!([
-                              { passing_status: 'passed', test: nonmetals},
-                              { passing_status: 'in_progress', test: oxides, current_question: oxides.questions.first },
-                              { passing_status: 'in_progress', test: acids, current_question: ac_question_2 }
-                            ])
-
-vladimir.test_passings.create!([
-                                 { passing_status: 'in_progress', test: nonmetals, current_question: no_question_3 },
-                                 { passing_status: 'passed', test: atmosphere },
-                                 { passing_status: 'passed', test: antarctica }
-                               ])
+level_3, planet, first = Badge.create!([
+  { title: 'Level-3', description: 'Пройдите все тесты 3 уровня',
+    image_url: 'https://tse2.mm.bing.net/th?id=OIP.zYXxnGw_1Unx9DvMLqBp2gHaFH&pid=Api', rule_type: 'AllByLevel',
+    rule_value: "3" },
+  { title: 'Planet', description: 'Пройдите все по географии',
+    image_url: 'https://aliceskill.ru/media/data/00/57/00579fff-a11f-4399-b781-4d9d3f5ba9db/geograficheskij-test..256x256_q85_background-%23ffffff.png',
+    rule_type: 'AllByCategory', rule_value: "География" },
+  { title: 'First', description: 'Пройдите любой тест',
+    image_url: 'https://webstockreview.net/images250_/pharmacy-clipart-buyer-seller-2.png',
+    rule_type: 'SuccessfulFirstAttempt', rule_value: "" }
+                                        ])
