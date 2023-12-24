@@ -21,5 +21,6 @@ function updateCountdown() {
 }
 
 function timeOver() {
-  
+  buttonNext = document.getElementById('btn-next')
+  buttonNext.click()
 }
