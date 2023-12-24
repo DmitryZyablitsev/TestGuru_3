@@ -37,6 +37,17 @@ class TestPassing < ApplicationRecord
       self.time_control = self.time_started + self.test.allotted_time
   end
 
+  def complete
+    self.passed = true
+    self.result = result_passage
+    # 85..100 это результат прохождения теста который считается успешным
+    self.successful = true if result_passage >= 85
+  end
+
+  def time_over?
+    self.time_control < Time.now.to_i
+  end
+
   private
 
   def before_validation_set_next_question_and_time
@@ -58,10 +69,4 @@ class TestPassing < ApplicationRecord
     current_question.answers.correct
   end
 
-  def complete
-    self.passed = true
-    self.result = result_passage
-    # 85..100 это результат прохождения теста который считается успешным
-    self.successful = true if result_passage >= 85
-  end
 end

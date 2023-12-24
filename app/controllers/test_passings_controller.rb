@@ -8,10 +8,10 @@ class TestPassingsController < ApplicationController
 
   def update
     @test_passing.accept!(params[:answer_ids])
-    if @test_passing.time_over?
-      
-    end
+    @test_passing.complete if @test_passing.time_over?
+
     if @test_passing.passed?
+      @test_passing.save!
       Specifications::Badges::BadgeDepartament.new(@test_passing).call
       TestsMailer.completed_test(@test_passing).deliver_now      
       redirect_to result_test_passing_path(@test_passing)
