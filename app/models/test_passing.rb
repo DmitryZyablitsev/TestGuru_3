@@ -3,7 +3,7 @@ class TestPassing < ApplicationRecord
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_next_question
+  before_validation :before_validation_set_next_question_and_time
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
@@ -32,11 +32,17 @@ class TestPassing < ApplicationRecord
     success_rate  = correct_questions_counter.to_f / number_questions * 100
   end
 
+  def setting_the_time
+      self.time_started = Time.now
+      self.time_control = self.time_started + self.test.allotted_time
+  end
+
   private
 
-  def before_validation_set_next_question
+  def before_validation_set_next_question_and_time
     self.current_question = 
       if self.new_record?
+        self.setting_the_time
         test.questions.first
       else
         remaining_questions.first

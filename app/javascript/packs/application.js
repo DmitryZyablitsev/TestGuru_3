@@ -10,6 +10,7 @@ import "channels"
 import "utillities/sorting"
 import "utillities/password_comparison"
 import "utillities/form_inline"
+import "utillities/timer"
 
 Rails.start()
 Turbolinks.start()

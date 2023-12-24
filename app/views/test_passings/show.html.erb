@@ -1,3 +1,6 @@
+<%= content_tag :div, class: "timer", data: {time: @test_passing.test.allotted_time} do %>
+<% end %>
+
 <h1> Passing the<%= @test_passing.test.title %> Test </h1>
 <p> Question <%= @test_passing.question_number  %>/ <%= @test_passing.number_questions%>
   <progress value="<%= @test_passing.question_number %>" max="<%= @test_passing.number_questions%>"></progress>
