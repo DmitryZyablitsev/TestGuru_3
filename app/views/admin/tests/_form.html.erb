@@ -13,5 +13,10 @@
     <%= f.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
 
+  <p>
+    <%= f.label :time_to_complete %>
+    <%= f.number_field :allotted_time %> sec
+  </p>
+
    <%= f.submit %>
 <% end %>

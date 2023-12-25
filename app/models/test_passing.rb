@@ -45,7 +45,7 @@ class TestPassing < ApplicationRecord
   end
 
   def time_over?
-    self.time_control < Time.now.to_i
+    self.time_control <= Time.now.to_i
   end
 
   private
