@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2023_12_22_022543) do
     t.decimal "result", precision: 5, scale: 2
     t.boolean "successful", default: false
     t.boolean "passed", default: false
-    t.integer "time_started"
     t.integer "time_control"
     t.index ["current_question_id"], name: "index_test_passings_on_current_question_id"
     t.index ["test_id"], name: "index_test_passings_on_test_id"

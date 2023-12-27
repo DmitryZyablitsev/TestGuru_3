@@ -4,12 +4,17 @@ class TestPassing < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_next_question_and_time
+  before_create :before_create_set_time_control
+
+  # 85..100 это результат прохождения теста который считается успешным
+  THRESHOLD_OF_PASSAGE = 85
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
-      self.correct_questions_counter += 1      
+      self.correct_questions_counter += 1
     end
-    save! 
+    self.complete if self.time_over?
+    save!
   end
 
   def number_questions
@@ -32,37 +37,37 @@ class TestPassing < ApplicationRecord
     success_rate  = correct_questions_counter.to_f / number_questions * 100
   end
 
-  def setting_the_time
-      self.time_started = Time.now
-      self.time_control = self.time_started + self.test.allotted_time
-  end
-
   def complete
     self.passed = true
     self.result = result_passage
-    # 85..100 это результат прохождения теста который считается успешным
-    self.successful = true if result_passage >= 85
+    self.successful = completed_successfully?
   end
 
-  def time_over?
-    self.time_control <= Time.now.to_i
+  def completed_successfully?
+    result_passage >= THRESHOLD_OF_PASSAGE
+  end
+
+  def time_over?   
+    self.time_control <=  Time.now.in_time_zone.to_i
   end
 
   private
 
   def before_validation_set_next_question_and_time
-    self.current_question = 
+    self.current_question =
       if self.new_record?
-        self.setting_the_time
         test.questions.first
       else
         remaining_questions.first
       end
+  end
 
+  def before_create_set_time_control 
+    self.time_control = self.created_at + self.test.allotted_time
   end
 
   def correct_answer?(answer_ids)
-    correct_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort    
+    correct_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
   end
 
   def correct_answers
