@@ -8,6 +8,7 @@ class TestPassingsController < ApplicationController
 
   def update
     @test_passing.accept!(params[:answer_ids])
+
     if @test_passing.passed?
       Specifications::Badges::BadgeDepartament.new(@test_passing).call
       TestsMailer.completed_test(@test_passing).deliver_now      

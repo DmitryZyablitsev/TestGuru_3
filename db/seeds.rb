@@ -20,7 +20,7 @@ chemistry, geography =
 nonmetals, oxides, acids =
   chemistry.tests.create!([
                             # Тесты по химии
-                            { title: 'Неметаллы', level: 5, author: roman },
+                            { title: 'Неметаллы', level: 5, author: roman, allotted_time: 75 },
                             { title: 'Оксиды', level: 3, author: roman },
                             { title: 'Кислоты', level: 3, author: roman }
                           ])
